@@ -1,0 +1,17 @@
+body { font-family: Arial, sans-serif; background: #eef; margin: 0; padding: 12px; }
+h1, h2 { color: #8B0000; margin-top: 10px; }
+.container { max-width: 900px; margin: auto; background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,.1); }
+input, textarea, button { width: 100%; padding: 10px; margin: 6px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+td, th { padding: 10px; border-bottom: 1px solid #ddd; text-align: left; }
+tr.item:hover { background: #f9f9f9; cursor: pointer; }
+.price { text-align: right; color: green; font-weight: bold; }
+.qtybtn { padding: 3px 10px; margin: 0 4px; width: auto; cursor: pointer; }
+.catbar { margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 6px; }
+.catbar button { width: auto; background: #8B0000; color: #fff; border: none; cursor: pointer; padding: 8px 15px; }
+.place { background: #4CAF50; color: #fff; border: none; font-size: 18px; font-weight: bold; cursor: pointer; padding: 15px; }
+.place:hover { background: #45a049; }
+.order-summary { background: #fcfcfc; padding: 15px; border: 1px solid #eee; border-radius: 8px; }
+
+/* Moved the inline style from your menu div to here */
+.menu-container { max-height: 400px; overflow-y: auto; border: 1px solid #eee; margin-bottom: 20px; }
