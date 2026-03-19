@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jkb Restaurant Online Food Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>🍴 Order Food Online</h1>
+
+    <input id="search" placeholder="🔍 Search 100+ items..." onkeyup="filterItems()">
+    <div class="catbar">
+        <button onclick="setCat('all')">All</button>
+        <button onclick="setCat('bev')">Beverages</button>
+        <button onclick="setCat('snack')">Quick Bites</button>
+        <button onclick="setCat('main')">Main Course</button>
+        <button onclick="setCat('rice')">Breads & Rice</button>
+        <button onclick="setCat('inter')">Chinese/Italian</button>
+        <button onclick="setCat('south')">South Indian</button>
+        <button onclick="setCat('dessert')">Desserts</button>
+    </div>
+
+    <h2>Menu</h2>
+    <div class="menu-container">
+        <table id="menuTable">
+            <tr class="item bev" onclick="addItem('Chai Tea', 15)"><td>Chai Tea</td><td class="price">₹15</td></tr>
+            <tr class="item bev" onclick="addItem('Coffee', 45)"><td>Coffee</td><td class="price">₹45</td></tr>
+            <tr class="item bev" onclick="addItem('Mango Lassi', 70)"><td>Mango Lassi</td><td class="price">₹70</td></tr>
+            
+            <tr class="item snack" onclick="addItem('Samosa', 20)"><td>Samosa</td><td class="price">₹20</td></tr>
+            <tr class="item snack" onclick="addItem('Vada Pav', 25)"><td>Vada Pav</td><td class="price">₹25</td></tr>
+            <tr class="item snack" onclick="addItem('Pav Bhaji', 120)"><td>Pav Bhaji</td><td class="price">₹120</td></tr>
+
+            <tr class="item main" onclick="addItem('Dal Makhani', 180)"><td>Dal Makhani</td><td class="price">₹180</td></tr>
+            <tr class="item main" onclick="addItem('Paneer Butter Masala', 190)"><td>Paneer Butter Masala</td><td class="price">₹190</td></tr>
+            
+            <tr class="item rice" onclick="addItem('Butter Naan', 45)"><td>Butter Naan</td><td class="price">₹45</td></tr>
+            <tr class="item rice" onclick="addItem('Veg Biryani', 180)"><td>Veg Biryani</td><td class="price">₹180</td></tr>
+
+            <tr class="item inter" onclick="addItem('Veg Hakka Noodles', 130)"><td>Hakka Noodles</td><td class="price">₹130</td></tr>
+            <tr class="item inter" onclick="addItem('Margherita Pizza', 200)"><td>Margherita Pizza</td><td class="price">₹200</td></tr>
+
+            <tr class="item south" onclick="addItem('Masala Dosa', 95)"><td>Masala Dosa</td><td class="price">₹95</td></tr>
+            <tr class="item south" onclick="addItem('Idli Sambar (2 pcs)', 60)"><td>Idli Sambar</td><td class="price">₹60</td></tr>
+
+            <tr class="item dessert" onclick="addItem('Gulab Jamun (2 pcs)', 50)"><td>Gulab Jamun</td><td class="price">₹50</td></tr>
+            <tr class="item dessert" onclick="addItem('Vanilla Ice Cream', 40)"><td>Vanilla Ice Cream</td><td class="price">₹40</td></tr>
+            
+            </table>
+    </div>
+
+    <div class="order-summary">
+        <h2>🛒 Your Order</h2>
+        <table>
+            <thead><tr><th>Item</th><th>Qty</th><th>Subtotal</th></tr></thead>
+            <tbody id="cartBody"></tbody>
+        </table>
+        <h3 style="text-align: right;">Total Amount: <span id="totalDisplay">₹0</span></h3>
+    </div>
+
+    <h2>📦 Delivery Details</h2>
+    <input id="userName" placeholder="Your Full Name">
+    <input id="userPhone" placeholder="Mobile Number">
+    <textarea id="userAddress" rows="3" placeholder="Full Delivery Address"></textarea>
+
+    <button class="place" onclick="placeOrder()">PLACE ORDER</button>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
