@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin – Orders Panel</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body{font-family:Arial;background:#eef;margin:0;padding:12px}
+h1,h2{color:#8B0000}
+.container{max-width:900px;margin:auto}
+.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.1)}
+button{padding:6px 10px;margin:4px;border:none;border-radius:5px;cursor:pointer}
+.done{background:#4CAF50;color:#fff}
+.del{background:#d32f2f;color:#fff}
+.pending{color:#ff9800;font-weight:bold}
+.completed{color:#4CAF50;font-weight:bold}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📦 Owner Order Dashboard</h1>
+
+<div id="orders"></div>
+
+</div>
+
+<script>
+function loadOrders(){
+ let orders=JSON.parse(localStorage.getItem("orders"))||[];
+ let box=document.getElementById("orders");
+ box.innerHTML="";
+
+ if(!orders.length){
+  box.innerHTML="<p>No orders yet.</p>";
+  return;
+ }
+
+ orders.forEach((o,i)=>{
+  let items=o.items.map(it=>`${it.n} x ${it.q}`).join(", ");
+  box.innerHTML+=`
+  <div class="card">
+    <h2>${o.name} (${o.phone})</h2>
+    <p><b>Address:</b> ${o.address}</p>
+    <p><b>Items:</b> ${items}</p>
+    <p>Status: 
+      <span class="${o.status==='Pending'?'pending':'completed'}">
+        ${o.status}
+      </span>
+    </p>
+    <button class="done" onclick="completeOrder(${i})">✔ Complete</button>
+    <button class="del" onclick="deleteOrder(${i})">🗑 Delete</button>
+  </div>`;
+ });
+}
+
+function completeOrder(i){
+ let orders=JSON.parse(localStorage.getItem("orders"))||[];
+ orders[i].status="Completed";
+ localStorage.setItem("orders",JSON.stringify(orders));
+ loadOrders();
+}
+
+function deleteOrder(i){
+ let orders=JSON.parse(localStorage.getItem("orders"))||[];
+ if(!confirm("Delete this order?"))return;
+ orders.splice(i,1);
+ localStorage.setItem("orders",JSON.stringify(orders));
+ loadOrders();
+}
+
+loadOrders();
+</script>
+
+</body>
+</html>
