@@ -1,79 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Admin – Orders Panel</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Restaurant Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; background: #333; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        h1, h2, h3 { color: #8B0000; }
+        input, button { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .btn { background: #8B0000; color: #fff; border: none; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .btn:hover { background: #600000; }
+        .logout-btn { background: #555; width: auto; padding: 8px 15px; float: right; }
+        
+        /* Order Cards */
+        .order-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 6px; background: #fcfcfc; }
+        .order-header { display: flex; justify-content: space-between; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 10px; }
+        .order-total { font-size: 18px; font-weight: bold; color: green; }
+        
+        /* Action Buttons */
+        .action-row { display: flex; gap: 10px; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 10px; }
+        .btn-complete { background: #4CAF50; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; flex: 1; font-weight: bold; }
+        .btn-cancel { background: #f44336; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; flex: 1; font-weight: bold; }
+        .btn-complete:hover { background: #45a049; }
+        .btn-cancel:hover { background: #da190b; }
 
-<style>
-body{font-family:Arial;background:#eef;margin:0;padding:12px}
-h1,h2{color:#8B0000}
-.container{max-width:900px;margin:auto}
-.card{background:#fff;padding:15px;border-radius:10px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.1)}
-button{padding:6px 10px;margin:4px;border:none;border-radius:5px;cursor:pointer}
-.done{background:#4CAF50;color:#fff}
-.del{background:#d32f2f;color:#fff}
-.pending{color:#ff9800;font-weight:bold}
-.completed{color:#4CAF50;font-weight:bold}
-</style>
+        /* Status Badges */
+        .badge { padding: 4px 8px; border-radius: 12px; font-size: 12px; color: white; font-weight: bold; }
+        .badge-completed { background: #4CAF50; }
+        .badge-cancelled { background: #f44336; }
+        
+        #dashboardScreen { display: none; }
+        .section-box { border: 2px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-
-<h1>📦 Owner Order Dashboard</h1>
-
-<div id="orders"></div>
-
+<div class="container" id="loginScreen">
+    <h1>🔒 Owner Login</h1>
+    <p>Please log in to manage orders.</p>
+    <input type="email" id="email" placeholder="Owner Email">
+    <input type="password" id="password" placeholder="Password">
+    <button class="btn" id="loginBtn">Login</button>
+    <p id="errorMsg" style="color:red; display:none;"></p>
 </div>
 
-<script>
-function loadOrders(){
- let orders=JSON.parse(localStorage.getItem("orders"))||[];
- let box=document.getElementById("orders");
- box.innerHTML="";
+<div class="container" id="dashboardScreen">
+    <button class="btn logout-btn" id="logoutBtn">Logout</button>
+    <h1>📋 Restaurant Dashboard</h1>
 
- if(!orders.length){
-  box.innerHTML="<p>No orders yet.</p>";
-  return;
- }
+    <div class="section-box">
+        <h2>🔔 Active Orders</h2>
+        <div id="activeOrders">Loading...</div>
+    </div>
 
- orders.forEach((o,i)=>{
-  let items=o.items.map(it=>`${it.n} x ${it.q}`).join(", ");
-  box.innerHTML+=`
-  <div class="card">
-    <h2>${o.name} (${o.phone})</h2>
-    <p><b>Address:</b> ${o.address}</p>
-    <p><b>Items:</b> ${items}</p>
-    <p>Status: 
-      <span class="${o.status==='Pending'?'pending':'completed'}">
-        ${o.status}
-      </span>
-    </p>
-    <button class="done" onclick="completeOrder(${i})">✔ Complete</button>
-    <button class="del" onclick="deleteOrder(${i})">🗑 Delete</button>
-  </div>`;
- });
-}
+    <div class="section-box">
+        <h2>✅ Completed Orders</h2>
+        <div id="completedOrders">Loading...</div>
+    </div>
 
-function completeOrder(i){
- let orders=JSON.parse(localStorage.getItem("orders"))||[];
- orders[i].status="Completed";
- localStorage.setItem("orders",JSON.stringify(orders));
- loadOrders();
-}
+    <div class="section-box">
+        <h2>❌ Cancelled Orders</h2>
+        <div id="cancelledOrders">Loading...</div>
+    </div>
+</div>
 
-function deleteOrder(i){
- let orders=JSON.parse(localStorage.getItem("orders"))||[];
- if(!confirm("Delete this order?"))return;
- orders.splice(i,1);
- localStorage.setItem("orders",JSON.stringify(orders));
- loadOrders();
-}
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // Notice we added 'doc' and 'updateDoc' here!
+    import { getFirestore, collection, getDocs, orderBy, query, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-loadOrders();
+    // TODO: Paste your real Firebase config here
+    const firebaseConfig = {
+      apiKey: "AIzaSyCTtUPc_vQ8INm3Hw5errVHMGD_IJJdClg",
+      authDomain: "jkb-res.firebaseapp.com",
+      projectId: "jkb-res",
+      storageBucket: "jkb-res.firebasestorage.app",
+      messagingSenderId: "1013495575936",
+      appId: "1:1013495575936:web:d6f083505614998eb87d65",
+      measurementId: "G-WDWY3L3VFS"
+    };
+
+    let app, db, auth;
+    try {
+        app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+    } catch (e) {
+        console.warn("Firebase config missing.");
+    }
+
+    const loginScreen = document.getElementById("loginScreen");
+    const dashboardScreen = document.getElementById("dashboardScreen");
+    const loginBtn = document.getElementById("loginBtn");
+    const logoutBtn = document.getElementById("logoutBtn");
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (auth) {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                loginScreen.style.display = "none";
+                dashboardScreen.style.display = "block";
+                fetchOrders();
+            } else {
+                loginScreen.style.display = "block";
+                dashboardScreen.style.display = "none";
+            }
+        });
+
+        loginBtn.addEventListener("click", () => {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            errorMsg.style.display = "none";
+            loginBtn.innerText = "Authenticating...";
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => { loginBtn.innerText = "Login"; })
+                .catch((error) => {
+                    errorMsg.innerText = "Invalid credentials.";
+                    errorMsg.style.display = "block";
+                    loginBtn.innerText = "Login";
+                });
+        });
+
+        logoutBtn.addEventListener("click", () => signOut(auth));
+    }
+
+    // Function to change order status in the database
+    window.changeStatus = async function(orderId, newStatus) {
+        if(!confirm(`Are you sure you want to mark this order as ${newStatus}?`)) return;
+        
+        try {
+            const orderRef = doc(db, "online_orders", orderId);
+            await updateDoc(orderRef, {
+                status: newStatus
+            });
+            // Refresh the dashboard to show the move
+            fetchOrders(); 
+        } catch (error) {
+            console.error("Error updating status:", error);
+            alert("Failed to update order. Check your permissions.");
+        }
+    };
+
+    async function fetchOrders() {
+        const activeContainer = document.getElementById("activeOrders");
+        const completedContainer = document.getElementById("completedOrders");
+        const cancelledContainer = document.getElementById("cancelledOrders");
+
+        try {
+            const q = query(collection(db, "online_orders"), orderBy("timestamp", "desc"));
+            const snapshot = await getDocs(q);
+            
+            // Clear existing HTML
+            activeContainer.innerHTML = "";
+            completedContainer.innerHTML = "";
+            cancelledContainer.innerHTML = "";
+
+            if(snapshot.empty) {
+                activeContainer.innerHTML = "<p>No active orders.</p>";
+                return;
+            }
+            
+            snapshot.forEach((doc) => {
+                const order = doc.data();
+                const orderId = doc.id; // Get the unique Firestore ID
+                
+                let itemsHTML = order.items.map(i => `<li>${i.q}x ${i.n} (₹${i.p * i.q})</li>`).join('');
+                let timeStr = order.timestamp ? order.timestamp.toDate().toLocaleString() : "Just now";
+
+                // Base HTML for the card
+                let cardHTML = `
+                    <div class="order-card">
+                        <div class="order-header">
+                            <div>
+                                <strong>👤 ${order.customer}</strong><br>
+                                📞 ${order.contact}<br>
+                                📍 ${order.address}<br>
+                                <small style="color:gray;">🕒 ${timeStr}</small>
+                            </div>
+                            <div style="text-align:right;">
+                                <div class="order-total">${order.total}</div>
+                `;
+
+                // Add status badge if it's not a new order
+                if(order.status === "Completed") cardHTML += `<span class="badge badge-completed">Completed</span>`;
+                if(order.status === "Cancelled") cardHTML += `<span class="badge badge-cancelled">Cancelled</span>`;
+
+                cardHTML += `
+                            </div>
+                        </div>
+                        <ul style="margin:0; padding-left: 20px;">${itemsHTML}</ul>
+                `;
+
+                // Add action buttons ONLY if it is a New Order
+                if (order.status === "New Order") {
+                    cardHTML += `
+                        <div class="action-row">
+                            <button class="btn-complete" onclick="changeStatus('${orderId}', 'Completed')">✔️ Complete</button>
+                            <button class="btn-cancel" onclick="changeStatus('${orderId}', 'Cancelled')">❌ Cancel</button>
+                        </div>
+                    `;
+                }
+
+                cardHTML += `</div>`; // Close card div
+
+                // Sort the card into the correct section based on its status
+                if (order.status === "New Order") {
+                    activeContainer.innerHTML += cardHTML;
+                } else if (order.status === "Completed") {
+                    completedContainer.innerHTML += cardHTML;
+                } else if (order.status === "Cancelled") {
+                    cancelledContainer.innerHTML += cardHTML;
+                }
+            });
+
+            // If a section is empty after sorting, add a placeholder message
+            if(activeContainer.innerHTML === "") activeContainer.innerHTML = "<p style='color:gray;'>No active orders right now.</p>";
+            if(completedContainer.innerHTML === "") completedContainer.innerHTML = "<p style='color:gray;'>No completed orders yet.</p>";
+            if(cancelledContainer.innerHTML === "") cancelledContainer.innerHTML = "<p style='color:gray;'>No cancelled orders.</p>";
+
+        } catch (error) {
+            console.error("Error fetching orders:", error);
+            activeContainer.innerHTML = `<p style="color:red;">Error loading orders.</p>`;
+        }
+    }
 </script>
-
 </body>
 </html>
