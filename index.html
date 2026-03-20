@@ -8,149 +8,747 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>🍴 Order Food Online</h1>
+<div class="catbar">
+    <button onclick="setCat('all')">All</button>
+    <button onclick="setCat('bev')">Beverages</button>
+    <button onclick="setCat('snack')">Quick Bites</button>
+    <button onclick="setCat('chaat')">Chaat Corner</button>
+    <button onclick="setCat('starter')">Tandoori Starters</button>
+    <button onclick="setCat('main')">Main Course</button>
+    <button onclick="setCat('thali')">Thali Specials</button>
+    <button onclick="setCat('rice')">Breads & Rice</button>
+    <button onclick="setCat('south')">South Indian</button>
+    <button onclick="setCat('inter')">Chinese/Continental</button>
+    <button onclick="setCat('soup')">Soups & Salads</button>
+    <button onclick="setCat('side')">Raita & Papad</button>
+    <button onclick="setCat('dessert')">Desserts</button>
+</div>
 
-    <input id="search" placeholder="🔍 Search 100+ items..." onkeyup="filterItems()">
-    <div class="catbar">
-        <button onclick="setCat('all')">All</button>
-        <button onclick="setCat('bev')">Beverages</button>
-        <button onclick="setCat('snack')">Quick Bites</button>
-        <button onclick="setCat('main')">Main Course</button>
-        <button onclick="setCat('rice')">Breads & Rice</button>
-        <button onclick="setCat('inter')">Chinese/Italian</button>
-        <button onclick="setCat('south')">South Indian</button>
-        <button onclick="setCat('dessert')">Desserts</button>
-    </div>
 
-    <h2>Menu</h2>
-    <div class="menu-container">
-        <table id="menuTable">
-            <tr class="item bev" onclick="addItem('Chai Tea', 15)"><td>Chai Tea</td><td class="price">₹15</td></tr>
-            <tr class="item bev" onclick="addItem('Coffee', 25)"><td>Coffee</td><td class="price">₹45</td></tr>
-            <tr class="item bev" onclick="addItem('Filter Coffee', 45)"><td>Filter Coffee</td><td class="price">₹45</td></tr>
-            <tr class="item bev" onclick="addItem('Sweet Lassi', 60)"><td>Sweet Lassi</td><td class="price">₹60</td></tr>
-            <tr class="item bev" onclick="addItem('Mango Lassi', 70)"><td>Mango Lassi</td><td class="price">₹70</td></tr>
-            <tr class="item bev" onclick="addItem('Fresh Lime Soda', 50)"><td>Fresh Lime Soda</td><td class="price">₹50</td></tr>
-            <tr class="item bev" onclick="addItem('Orange Juice', 70)"><td>Orange Juice</td><td class="price">₹70</td></tr>
-            <tr class="item bev" onclick="addItem('Water Bottle (1L)', 20)"><td>Water Bottle</td><td class="price">₹20</td></tr>
-            <tr class="item bev" onclick="addItem('Cold Coffee', 80)"><td>Cold Coffee</td><td class="price">₹80</td></tr>
-            <tr class="item bev" onclick="addItem('Buttermilk (Chaas)', 30)"><td>Buttermilk</td><td class="price">₹30</td></tr>
-            <tr class="item bev" onclick="addItem('Coca-Cola', 20)"><td>Coca-Cola</td><td class="price">₹20</td></tr>
-            <tr class="item bev" onclick="addItem('Sprite', 20)"><td>Sprite</td><td class="price">₹20</td></tr>
-            <tr class="item bev" onclick="addItem('Hot Chocolate', 90)"><td>Hot Chocolate</td><td class="price">₹90</td></tr>
+<h2>Menu</h2>
+<div class="menu-container">
+    <table id="menuTable">
+        
+        <!-- CONSOLIDATED BEVERAGES (80 Items) -->
+        <!-- Hot Teas & Coffees -->
+     
+        <!-- BEVERAGES (80 ITEMS TOTAL) -->
+        <!-- Hot Tea & Coffee (1-15) -->
+        <tr class="item bev" onclick="addItem('Masala Chai', 30)"><td>Masala Chai</td><td class="price">₹30</td></tr>
+        <tr class="item bev" onclick="addItem('Ginger Tea', 35)"><td>Ginger Tea</td><td class="price">₹35</td></tr>
+        <tr class="item bev" onclick="addItem('Cardamom Tea', 35)"><td>Cardamom Tea</td><td class="price">₹35</td></tr>
+        <tr class="item bev" onclick="addItem('Sulaimani Black Tea', 30)"><td>Sulaimani Black Tea</td><td class="price">₹30</td></tr>
+        <tr class="item bev" onclick="addItem('Kashmiri Kahwa', 80)"><td>Kashmiri Kahwa</td><td class="price">₹80</td></tr>
+        <tr class="item bev" onclick="addItem('Green Tea Honey', 50)"><td>Green Tea Honey</td><td class="price">₹50</td></tr>
+        <tr class="item bev" onclick="addItem('Filter Coffee', 50)"><td>Filter Coffee</td><td class="price">₹50</td></tr>
+        <tr class="item bev" onclick="addItem('Cappuccino', 120)"><td>Cappuccino</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Cafe Latte', 130)"><td>Cafe Latte</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Espresso Shot', 90)"><td>Espresso Shot</td><td class="price">₹90</td></tr>
+        <tr class="item bev" onclick="addItem('Cafe Mocha', 150)"><td>Cafe Mocha</td><td class="price">₹150</td></tr>
+        <tr class="item bev" onclick="addItem('Americano Black', 100)"><td>Americano Black</td><td class="price">₹100</td></tr>
+        <tr class="item bev" onclick="addItem('Hot Chocolate', 140)"><td>Hot Chocolate</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Caramel Macchiato', 160)"><td>Caramel Macchiato</td><td class="price">₹160</td></tr>
+        <tr class="item bev" onclick="addItem('Irish Coffee Non-Alc', 170)"><td>Irish Coffee Non-Alc</td><td class="price">₹170</td></tr>
 
-            <tr class="item snack" onclick="addItem('Samosa', 20)"><td>Samosa</td><td class="price">₹20</td></tr>
-            <tr class="item snack" onclick="addItem('Pani Puri (6 pcs)', 40)"><td>Pani Puri</td><td class="price">₹40</td></tr>
-            <tr class="item snack" onclick="addItem('Sev Puri', 50)"><td>Sev Puri</td><td class="price">₹50</td></tr>
-            <tr class="item snack" onclick="addItem('Bhel Puri', 45)"><td>Bhel Puri</td><td class="price">₹45</td></tr>
-            <tr class="item snack" onclick="addItem('Dahi Puri', 60)"><td>Dahi Puri</td><td class="price">₹60</td></tr>
-            <tr class="item snack" onclick="addItem('Aloo Tikki Chaat', 80)"><td>Aloo Tikki</td><td class="price">₹80</td></tr>
-            <tr class="item snack" onclick="addItem('Samosa Pav', 30)"><td>Samosa Pav</td><td class="price">₹30</td></tr>
-            <tr class="item snack" onclick="addItem('Vada Pav', 25)"><td>Vada Pav</td><td class="price">₹25</td></tr>
-            <tr class="item snack" onclick="addItem('Misal Pav', 90)"><td>Misal Pav</td><td class="price">₹90</td></tr>
-            <tr class="item snack" onclick="addItem('Pav Bhaji', 120)"><td>Pav Bhaji</td><td class="price">₹120</td></tr>
-            <tr class="item snack" onclick="addItem('Cheese Pav Bhaji', 150)"><td>Cheese Pav Bhaji</td><td class="price">₹150</td></tr>
-            <tr class="item snack" onclick="addItem('Dahi Vada', 70)"><td>Dahi Vada</td><td class="price">₹70</td></tr>
-            <tr class="item snack" onclick="addItem('Papdi Chaat', 65)"><td>Papdi Chaat</td><td class="price">₹65</td></tr>
-            <tr class="item snack" onclick="addItem('Kachori (2 pcs)', 40)"><td>Kachori</td><td class="price">₹40</td></tr>
-            <tr class="item snack" onclick="addItem('Paneer Pakoda', 100)"><td>Paneer Pakoda</td><td class="price">₹100</td></tr>
-            <tr class="item snack" onclick="addItem('Mix Veg Pakoda', 80)"><td>Mix Veg Pakoda</td><td class="price">₹80</td></tr>
+        <!-- Cold Coffees & Frappes (16-25) -->
+        <tr class="item bev" onclick="addItem('Classic Cold Coffee', 120)"><td>Classic Cold Coffee</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Cold Coffee with Ice Cream', 140)"><td>Cold Coffee with Ice Cream</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Iced Americano', 110)"><td>Iced Americano</td><td class="price">₹110</td></tr>
+        <tr class="item bev" onclick="addItem('Hazelnut Cold Coffee', 150)"><td>Hazelnut Cold Coffee</td><td class="price">₹150</td></tr>
+        <tr class="item bev" onclick="addItem('Caramel Frappe', 170)"><td>Caramel Frappe</td><td class="price">₹170</td></tr>
+        <tr class="item bev" onclick="addItem('Mocha Frappe', 170)"><td>Mocha Frappe</td><td class="price">₹170</td></tr>
+        <tr class="item bev" onclick="addItem('Iced Latte', 140)"><td>Iced Latte</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Vietnamese Cold Coffee', 160)"><td>Vietnamese Cold Coffee</td><td class="price">₹160</td></tr>
+        <tr class="item bev" onclick="addItem('Chocolate Cold Coffee', 150)"><td>Chocolate Cold Coffee</td><td class="price">₹150</td></tr>
+        <tr class="item bev" onclick="addItem('Frappuccino', 180)"><td>Frappuccino</td><td class="price">₹180</td></tr>
 
-            <tr class="item main" onclick="addItem('Dal Makhani', 180)"><td>Dal Makhani</td><td class="price">₹180</td></tr>
-            <tr class="item main" onclick="addItem('Dal Tadka', 120)"><td>Dal Tadka</td><td class="price">₹120</td></tr>
-            <tr class="item main" onclick="addItem('Paneer Butter Masala', 190)"><td>Paneer Butter Masala</td><td class="price">₹190</td></tr>
-            <tr class="item main" onclick="addItem('Shahi Paneer', 185)"><td>Shahi Paneer</td><td class="price">₹185</td></tr>
-            <tr class="item main" onclick="addItem('Kadai Paneer', 195)"><td>Kadai Paneer</td><td class="price">₹195</td></tr>
-            <tr class="item main" onclick="addItem('Palak Paneer', 175)"><td>Palak Paneer</td><td class="price">₹175</td></tr>
-            <tr class="item main" onclick="addItem('Malai Kofta', 185)"><td>Malai Kofta</td><td class="price">₹185</td></tr>
-            <tr class="item main" onclick="addItem('Chana Masala', 140)"><td>Chana Masala</td><td class="price">₹140</td></tr>
-            <tr class="item main" onclick="addItem('Rajma Masala', 145)"><td>Rajma Masala</td><td class="price">₹145</td></tr>
-            <tr class="item main" onclick="addItem('Aloo Gobi', 135)"><td>Aloo Gobi</td><td class="price">₹135</td></tr>
-            <tr class="item main" onclick="addItem('Mix Veg Curry', 150)"><td>Mix Veg Curry</td><td class="price">₹150</td></tr>
-            <tr class="item main" onclick="addItem('Baingan Bharta', 155)"><td>Baingan Bharta</td><td class="price">₹155</td></tr>
-            <tr class="item main" onclick="addItem('Pithla', 130)"><td>Pithla</td><td class="price">₹130</td></tr>
-            <tr class="item main" onclick="addItem('Undhiyu', 170)"><td>Undhiyu</td><td class="price">₹170</td></tr>
-            <tr class="item main" onclick="addItem('Gujarati Kadhi', 110)"><td>Gujarati Kadhi</td><td class="price">₹110</td></tr>
-            <tr class="item main" onclick="addItem('Bharli Vangi', 160)"><td>Bharli Vangi</td><td class="price">₹160</td></tr>
-            <tr class="item main" onclick="addItem('Gatte ki Sabzi', 150)"><td>Gatte ki Sabzi</td><td class="price">₹150</td></tr>
-            <tr class="item main" onclick="addItem('Ker Sangri', 175)"><td>Ker Sangri</td><td class="price">₹175</td></tr>
-            <tr class="item main" onclick="addItem('Avial', 165)"><td>Avial</td><td class="price">₹165</td></tr>
-            <tr class="item main" onclick="addItem('Sambar', 90)"><td>Sambar</td><td class="price">₹90</td></tr>
-            <tr class="item main" onclick="addItem('Mushroom Masala', 210)"><td>Mushroom Masala</td><td class="price">₹210</td></tr>
-            <tr class="item main" onclick="addItem('Bhindi Fry', 130)"><td>Bhindi Fry</td><td class="price">₹130</td></tr>
-            <tr class="item main" onclick="addItem('Jeera Aloo', 110)"><td>Jeera Aloo</td><td class="price">₹110</td></tr>
-            <tr class="item main" onclick="addItem('Veg Jalfrezi', 170)"><td>Veg Jalfrezi</td><td class="price">₹170</td></tr>
-            <tr class="item main" onclick="addItem('Dum Aloo', 180)"><td>Dum Aloo</td><td class="price">₹180</td></tr>
-            <tr class="item main" onclick="addItem('Methi Matar Malai', 200)"><td>Methi Matar Malai</td><td class="price">₹200</td></tr>
-            <tr class="item main" onclick="addItem('Paneer Do Pyaza', 195)"><td>Paneer Do Pyaza</td><td class="price">₹195</td></tr>
-            <tr class="item main" onclick="addItem('Veg Kofta', 160)"><td>Veg Kofta</td><td class="price">₹160</td></tr>
-            <tr class="item main" onclick="addItem('Kaju Curry', 250)"><td>Kaju Curry</td><td class="price">₹250</td></tr>
-            <tr class="item main" onclick="addItem('Sev Tamatar', 140)"><td>Sev Tamatar</td><td class="price">₹140</td></tr>
-            <tr class="item main" onclick="addItem('Baingan Masala', 150)"><td>Baingan Masala</td><td class="price">₹150</td></tr>
-            <tr class="item main" onclick="addItem('Tawa Veg', 165)"><td>Tawa Veg</td><td class="price">₹165</td></tr>
-            <tr class="item main" onclick="addItem('Matar Paneer', 180)"><td>Matar Paneer</td><td class="price">₹180</td></tr>
-            <tr class="item main" onclick="addItem('Aloo Matar', 130)"><td>Aloo Matar</td><td class="price">₹130</td></tr>
-            <tr class="item main" onclick="addItem('Navratan Korma', 220)"><td>Navratan Korma</td><td class="price">₹220</td></tr>
+        <!-- Mocktails & Coolers (26-45) -->
+        <tr class="item bev" onclick="addItem('Virgin Mojito', 120)"><td>Virgin Mojito</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Blue Lagoon Mocktail', 130)"><td>Blue Lagoon Mocktail</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Watermelon Cooler', 110)"><td>Watermelon Cooler</td><td class="price">₹110</td></tr>
+        <tr class="item bev" onclick="addItem('Strawberry Margarita Non-Alc', 140)"><td>Strawberry Margarita Non-Alc</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Pineapple Sunshine', 130)"><td>Pineapple Sunshine</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Green Apple Soda', 110)"><td>Green Apple Soda</td><td class="price">₹110</td></tr>
+        <tr class="item bev" onclick="addItem('Peach Iced Tea', 100)"><td>Peach Iced Tea</td><td class="price">₹100</td></tr>
+        <tr class="item bev" onclick="addItem('Lemon Iced Tea', 90)"><td>Lemon Iced Tea</td><td class="price">₹90</td></tr>
+        <tr class="item bev" onclick="addItem('Mint Mojito', 110)"><td>Mint Mojito</td><td class="price">₹110</td></tr>
+        <tr class="item bev" onclick="addItem('Kiwi Mint Cooler', 140)"><td>Kiwi Mint Cooler</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Guava Mary Spicy', 130)"><td>Guava Mary Spicy</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Fruit Punch', 150)"><td>Fruit Punch</td><td class="price">₹150</td></tr>
+        <tr class="item bev" onclick="addItem('Pinacolada Mocktail', 140)"><td>Pinacolada Mocktail</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Kala Khatta Soda', 80)"><td>Kala Khatta Soda</td><td class="price">₹80</td></tr>
+        <tr class="item bev" onclick="addItem('Passion Fruit Soda', 120)"><td>Passion Fruit Soda</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Fresh Lime Soda Sweet', 60)"><td>Fresh Lime Soda Sweet</td><td class="price">₹60</td></tr>
+        <tr class="item bev" onclick="addItem('Fresh Lime Soda Salted', 60)"><td>Fresh Lime Soda Salted</td><td class="price">₹60</td></tr>
+        <tr class="item bev" onclick="addItem('Shikanji Masala', 50)"><td>Shikanji Masala</td><td class="price">₹50</td></tr>
+        <tr class="item bev" onclick="addItem('Jal Jeera Refresh', 40)"><td>Jal Jeera Refresh</td><td class="price">₹40</td></tr>
+        <tr class="item bev" onclick="addItem('Aam Panna Cooler', 70)"><td>Aam Panna Cooler</td><td class="price">₹70</td></tr>
 
-            <tr class="item rice" onclick="addItem('Butter Roti', 15)"><td>Butter Roti</td><td class="price">₹15</td></tr>
-            <tr class="item rice" onclick="addItem('Missi Roti', 35)"><td>Missi Roti</td><td class="price">₹35</td></tr>
-            <tr class="item rice" onclick="addItem('Butter Naan', 45)"><td>Butter Naan</td><td class="price">₹45</td></tr>
-            <tr class="item rice" onclick="addItem('Garlic Naan', 60)"><td>Garlic Naan</td><td class="price">₹60</td></tr>
-            <tr class="item rice" onclick="addItem('Laccha Paratha', 50)"><td>Laccha Paratha</td><td class="price">₹50</td></tr>
-            <tr class="item rice" onclick="addItem('Aloo Paratha', 70)"><td>Aloo Paratha</td><td class="price">₹70</td></tr>
-            <tr class="item rice" onclick="addItem('Paneer Paratha', 90)"><td>Paneer Paratha</td><td class="price">₹90</td></tr>
-            <tr class="item rice" onclick="addItem('Steamed Rice', 80)"><td>Steamed Rice</td><td class="price">₹80</td></tr>
-            <tr class="item rice" onclick="addItem('Jeera Rice', 100)"><td>Jeera Rice</td><td class="price">₹100</td></tr>
-            <tr class="item rice" onclick="addItem('Veg Pulao', 140)"><td>Veg Pulao</td><td class="price">₹140</td></tr>
-            <tr class="item rice" onclick="addItem('Veg Biryani', 180)"><td>Veg Biryani</td><td class="price">₹180</td></tr>
-            <tr class="item rice" onclick="addItem('Paneer Biryani', 210)"><td>Paneer Biryani</td><td class="price">₹210</td></tr>
-            <tr class="item rice" onclick="addItem('Dal Khichdi', 130)"><td>Dal Khichdi</td><td class="price">₹130</td></tr>
-            <tr class="item rice" onclick="addItem('Curd Rice', 110)"><td>Curd Rice</td><td class="price">₹110</td></tr>
-            <tr class="item rice" onclick="addItem('Tandoori Roti', 12)"><td>Tandoori Roti</td><td class="price">₹12</td></tr>
+        <!-- Shakes & Lassi (46-60) -->
+        <tr class="item bev" onclick="addItem('Chocolate Milkshake', 130)"><td>Chocolate Milkshake</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Vanilla Milkshake', 120)"><td>Vanilla Milkshake</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Strawberry Milkshake', 130)"><td>Strawberry Milkshake</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Mango Milkshake', 140)"><td>Mango Milkshake</td><td class="price">₹140</td></tr>
+        <tr class="item bev" onclick="addItem('Oreo Milkshake', 160)"><td>Oreo Milkshake</td><td class="price">₹160</td></tr>
+        <tr class="item bev" onclick="addItem('KitKat Milkshake', 160)"><td>KitKat Milkshake</td><td class="price">₹160</td></tr>
+        <tr class="item bev" onclick="addItem('Butterscotch Shake', 130)"><td>Butterscotch Shake</td><td class="price">₹130</td></tr>
+        <tr class="item bev" onclick="addItem('Sweet Lassi', 70)"><td>Sweet Lassi</td><td class="price">₹70</td></tr>
+        <tr class="item bev" onclick="addItem('Mango Lassi', 90)"><td>Mango Lassi</td><td class="price">₹90</td></tr>
+        <tr class="item bev" onclick="addItem('Salted Chaas', 40)"><td>Salted Chaas</td><td class="price">₹40</td></tr>
+        <tr class="item bev" onclick="addItem('Masala Chaas', 50)"><td>Masala Chaas</td><td class="price">₹50</td></tr>
+        <tr class="item bev" onclick="addItem('Rose Milkshake', 120)"><td>Rose Milkshake</td><td class="price">₹120</td></tr>
+        <tr class="item bev" onclick="addItem('Belgian Chocolate Shake', 180)"><td>Belgian Chocolate Shake</td><td class="price">₹180</td></tr>
+        <tr class="item bev" onclick="addItem('Dry Fruit Shake', 190)"><td>Dry Fruit Shake</td><td class="price">₹190</td></tr>
+        <tr class="item bev" onclick="addItem('Banana Smoothie', 110)"><td>Banana Smoothie</td><td class="price">₹110</td></tr>
 
-            <tr class="item inter" onclick="addItem('Veg Hakka Noodles', 130)"><td>Hakka Noodles</td><td class="price">₹130</td></tr>
-            <tr class="item inter" onclick="addItem('Schezwan Noodles', 145)"><td>Schezwan Noodles</td><td class="price">₹145</td></tr>
-            <tr class="item inter" onclick="addItem('Veg Fried Rice', 130)"><td>Veg Fried Rice</td><td class="price">₹130</td></tr>
-            <tr class="item inter" onclick="addItem('Veg Manchurian', 150)"><td>Veg Manchurian</td><td class="price">₹150</td></tr>
-            <tr class="item inter" onclick="addItem('Paneer Chilli', 180)"><td>Paneer Chilli</td><td class="price">₹180</td></tr>
-            <tr class="item inter" onclick="addItem('Spring Roll', 90)"><td>Spring Roll</td><td class="price">₹90</td></tr>
-            <tr class="item inter" onclick="addItem('Red Sauce Pasta', 160)"><td>Red Sauce Pasta</td><td class="price">₹160</td></tr>
-            <tr class="item inter" onclick="addItem('White Sauce Pasta', 180)"><td>White Sauce Pasta</td><td class="price">₹180</td></tr>
-            <tr class="item inter" onclick="addItem('Pink Sauce Pasta', 190)"><td>Pink Sauce Pasta</td><td class="price">₹190</td></tr>
-            <tr class="item inter" onclick="addItem('Margherita Pizza', 200)"><td>Margherita Pizza</td><td class="price">₹200</td></tr>
-            <tr class="item inter" onclick="addItem('Farmhouse Pizza', 280)"><td>Farmhouse Pizza</td><td class="price">₹280</td></tr>
-            <tr class="item inter" onclick="addItem('Garlic Bread', 110)"><td>Garlic Bread</td><td class="price">₹110</td></tr>
-            <tr class="item inter" onclick="addItem('French Fries', 80)"><td>French Fries</td><td class="price">₹80</td></tr>
-            <tr class="item inter" onclick="addItem('Peri Peri Fries', 100)"><td>Peri Peri Fries</td><td class="price">₹100</td></tr>
-            <tr class="item inter" onclick="addItem('Cheese Corn Balls', 140)"><td>Cheese Balls</td><td class="price">₹140</td></tr>
+        <!-- Cold Drinks & Bottled (61-80) -->
+        <tr class="item bev" onclick="addItem('Coca Cola 500ml', 45)"><td>Coca Cola 500ml</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Pepsi 500ml', 45)"><td>Pepsi 500ml</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Thums Up 500ml', 45)"><td>Thums Up 500ml</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Sprite 500ml', 45)"><td>Sprite 500ml</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('7-Up 500ml', 45)"><td>7-Up 500ml</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Mountain Dew', 45)"><td>Mountain Dew</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Fanta Orange', 45)"><td>Fanta Orange</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Limca', 45)"><td>Limca</td><td class="price">₹45</td></tr>
+        <tr class="item bev" onclick="addItem('Diet Coke', 55)"><td>Diet Coke</td><td class="price">₹55</td></tr>
+        <tr class="item bev" onclick="addItem('Red Bull Energy', 160)"><td>Red Bull Energy</td><td class="price">₹160</td></tr>
+        <tr class="item bev" onclick="addItem('Appy Fizz', 35)"><td>Appy Fizz</td><td class="price">₹35</td></tr>
+        <tr class="item bev" onclick="addItem('Maaza', 40)"><td>Maaza</td><td class="price">₹40</td></tr>
+        <tr class="item bev" onclick="addItem('Mineral Water 1L', 20)"><td>Mineral Water 1L</td><td class="price">₹20</td></tr>
+        <tr class="item bev" onclick="addItem('Kinley Soda', 20)"><td>Kinley Soda</td><td class="price">₹20</td></tr>
+        <tr class="item bev" onclick="addItem('Schweppes Tonic Water', 70)"><td>Schweppes Tonic Water</td><td class="price">₹70</td></tr>
+        <tr class="item bev" onclick="addItem('Schweppes Ginger Ale', 70)"><td>Schweppes Ginger Ale</td><td class="price">₹70</td></tr>
+        <tr class="item bev" onclick="addItem('Sting Energy Drink', 20)"><td>Sting Energy Drink</td><td class="price">₹20</td></tr>
+        <tr class="item bev" onclick="addItem('Ocean Fruit Water', 60)"><td>Ocean Fruit Water</td><td class="price">₹60</td></tr>
+        <tr class="item bev" onclick="addItem('Jeera Masala Soda', 40)"><td>Jeera Masala Soda</td><td class="price">₹40</td></tr>
+        <tr class="item bev" onclick="addItem('Himalayan Water', 60)"><td>Himalayan Water</td><td class="price">₹60</td></tr>
 
-            <tr class="item south" onclick="addItem('Plain Dosa', 70)"><td>Plain Dosa</td><td class="price">₹70</td></tr>
-            <tr class="item south" onclick="addItem('Masala Dosa', 95)"><td>Masala Dosa</td><td class="price">₹95</td></tr>
-            <tr class="item south" onclick="addItem('Mysore Masala Dosa', 120)"><td>Mysore Dosa</td><td class="price">₹120</td></tr>
-            <tr class="item south" onclick="addItem('Rava Masala Dosa', 110)"><td>Rava Masala Dosa</td><td class="price">₹110</td></tr>
-            <tr class="item south" onclick="addItem('Idli Sambar (2 pcs)', 60)"><td>Idli Sambar</td><td class="price">₹60</td></tr>
-            <tr class="item south" onclick="addItem('Medu Vada (2 pcs)', 80)"><td>Medu Vada</td><td class="price">₹80</td></tr>
-            <tr class="item south" onclick="addItem('Onion Uttapam', 100)"><td>Onion Uttapam</td><td class="price">₹100</td></tr>
-            <tr class="item south" onclick="addItem('Veg Sandwich', 60)"><td>Veg Sandwich</td><td class="price">₹60</td></tr>
-            <tr class="item south" onclick="addItem('Veg Grilled Sandwich', 90)"><td>Grilled Sandwich</td><td class="price">₹90</td></tr>
-            <tr class="item south" onclick="addItem('Cheese Chutney Sandwich', 80)"><td>Cheese Chutney</td><td class="price">₹80</td></tr>
-            <tr class="item south" onclick="addItem('Bombay Masala Toast', 110)"><td>Bombay Toast</td><td class="price">₹110</td></tr>
-            <tr class="item south" onclick="addItem('Club Sandwich', 150)"><td>Club Sandwich</td><td class="price">₹150</td></tr>
-            <tr class="item south" onclick="addItem('Paneer Sandwich', 120)"><td>Paneer Sandwich</td><td class="price">₹120</td></tr>
-            <tr class="item south" onclick="addItem('Bread Butter', 40)"><td>Bread Butter</td><td class="price">₹40</td></tr>
-            <tr class="item south" onclick="addItem('Upma', 50)"><td>Upma</td><td class="price">₹50</td></tr>
 
-            <tr class="item dessert" onclick="addItem('Gulab Jamun (2 pcs)', 50)"><td>Gulab Jamun</td><td class="price">₹50</td></tr>
-            <tr class="item dessert" onclick="addItem('Rasmalai (2 pcs)', 80)"><td>Rasmalai</td><td class="price">₹80</td></tr>
-            <tr class="item dessert" onclick="addItem('Vanilla Ice Cream', 40)"><td>Vanilla Ice Cream</td><td class="price">₹40</td></tr>
-            <tr class="item dessert" onclick="addItem('Chocolate Ice Cream', 50)"><td>Chocolate Ice Cream</td><td class="price">₹50</td></tr>
-            <tr class="item dessert" onclick="addItem('Brownie with Fudge', 120)"><td>Brownie Fudge</td><td class="price">₹120</td></tr>
-            <tr class="item dessert" onclick="addItem('Moong Dal Halwa', 70)"><td>Moong Dal Halwa</td><td class="price">₹70</td></tr>
-            <tr class="item dessert" onclick="addItem('Gajar Halwa (Seasonal)', 80)"><td>Gajar Halwa</td><td class="price">₹80</td></tr>
-            <tr class="item dessert" onclick="addItem('Kulfi', 45)"><td>Kulfi</td><td class="price">₹45</td></tr>
-            <tr class="item dessert" onclick="addItem('Jalebi (100g)', 60)"><td>Jalebi</td><td class="price">₹60</td></tr>
-            <tr class="item dessert" onclick="addItem('Rasgulla (2 pcs)', 50)"><td>Rasgulla</td><td class="price">₹50</td></tr>
+
+
+        <!-- QUICK BITES (60+ Items) -->
+        <tr class="item snack" onclick="addItem('Vada Pav', 20)"><td>Vada Pav</td><td class="price">₹20</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Vada Pav', 40)"><td>Cheese Vada Pav</td><td class="price">₹40</td></tr>
+        <tr class="item snack" onclick="addItem('Samosa (1 pc)', 15)"><td>Samosa</td><td class="price">₹15</td></tr>
+        <tr class="item snack" onclick="addItem('Samosa Pav', 30)"><td>Samosa Pav</td><td class="price">₹30</td></tr>
+        <tr class="item snack" onclick="addItem('Paneer Puffs', 45)"><td>Paneer Puffs</td><td class="price">₹45</td></tr>
+        <tr class="item snack" onclick="addItem('Veg Puffs', 35)"><td>Veg Puffs</td><td class="price">₹35</td></tr>
+        <tr class="item snack" onclick="addItem('Bread Pakoda', 30)"><td>Bread Pakoda</td><td class="price">₹30</td></tr>
+        <tr class="item snack" onclick="addItem('Aloo Bonda', 25)"><td>Aloo Bonda</td><td class="price">₹25</td></tr>
+        <tr class="item snack" onclick="addItem('Mirchi Bhajji', 40)"><td>Mirchi Bhajji</td><td class="price">₹40</td></tr>
+        <tr class="item snack" onclick="addItem('Onion Pakoda', 60)"><td>Onion Pakoda</td><td class="price">₹60</td></tr>
+        <tr class="item snack" onclick="addItem('Mix Veg Pakoda', 80)"><td>Mix Veg Pakoda</td><td class="price">₹80</td></tr>
+        <tr class="item snack" onclick="addItem('Paneer Pakoda', 120)"><td>Paneer Pakoda</td><td class="price">₹120</td></tr>
+        <tr class="item snack" onclick="addItem('Sabudana Vada', 70)"><td>Sabudana Vada</td><td class="price">₹70</td></tr>
+        <tr class="item snack" onclick="addItem('Sabudana Khichdi', 80)"><td>Sabudana Khichdi</td><td class="price">₹80</td></tr>
+        <tr class="item snack" onclick="addItem('Misal Pav', 90)"><td>Misal Pav</td><td class="price">₹90</td></tr>
+        <tr class="item snack" onclick="addItem('Pav Bhaji', 120)"><td>Pav Bhaji</td><td class="price">₹120</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Pav Bhaji', 150)"><td>Cheese Pav Bhaji</td><td class="price">₹150</td></tr>
+        <tr class="item snack" onclick="addItem('Paneer Pav Bhaji', 160)"><td>Paneer Pav Bhaji</td><td class="price">₹160</td></tr>
+        <tr class="item snack" onclick="addItem('Veg Cutlet', 50)"><td>Veg Cutlet</td><td class="price">₹50</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Corn Balls', 140)"><td>Cheese Corn Balls</td><td class="price">₹140</td></tr>
+        <tr class="item snack" onclick="addItem('French Fries', 80)"><td>French Fries</td><td class="price">₹80</td></tr>
+        <tr class="item snack" onclick="addItem('Peri Peri Fries', 100)"><td>Peri Peri Fries</td><td class="price">₹100</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Fries', 130)"><td>Cheese Fries</td><td class="price">₹130</td></tr>
+        <tr class="item snack" onclick="addItem('Maggi Plain', 50)"><td>Maggi Plain</td><td class="price">₹50</td></tr>
+        <tr class="item snack" onclick="addItem('Veg Maggi', 70)"><td>Veg Maggi</td><td class="price">₹70</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Maggi', 90)"><td>Cheese Maggi</td><td class="price">₹90</td></tr>
+        <tr class="item snack" onclick="addItem('Paneer Maggi', 110)"><td>Paneer Maggi</td><td class="price">₹110</td></tr>
+        <tr class="item snack" onclick="addItem('Garlic Bread', 100)"><td>Garlic Bread</td><td class="price">₹100</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Garlic Bread', 140)"><td>Cheese Garlic Bread</td><td class="price">₹140</td></tr>
+        <tr class="item snack" onclick="addItem('Dhokla', 50)"><td>Dhokla</td><td class="price">₹50</td></tr>
+        <tr class="item snack" onclick="addItem('Khandvi', 60)"><td>Khandvi</td><td class="price">₹60</td></tr>
+        <tr class="item snack" onclick="addItem('Fafda Jalebi Plate', 120)"><td>Fafda Jalebi Plate</td><td class="price">₹120</td></tr>
+        <tr class="item snack" onclick="addItem('Batata Vada', 25)"><td>Batata Vada</td><td class="price">₹25</td></tr>
+        <tr class="item snack" onclick="addItem('Upma', 50)"><td>Upma</td><td class="price">₹50</td></tr>
+        <tr class="item snack" onclick="addItem('Poha', 40)"><td>Poha</td><td class="price">₹40</td></tr>
+        <tr class="item snack" onclick="addItem('Veg Burger', 80)"><td>Veg Burger</td><td class="price">₹80</td></tr>
+        <tr class="item snack" onclick="addItem('Cheese Burger', 100)"><td>Cheese Burger</td><td class="price">₹100</td></tr>
+        <tr class="item snack" onclick="addItem('Paneer Burger', 130)"><td>Paneer Burger</td><td class="price">₹130</td></tr>
+
+        <!-- CHAAT CORNER (60+ Items) -->
+        <tr class="item chaat" onclick="addItem('Pani Puri', 40)"><td>Pani Puri</td><td class="price">₹40</td></tr>
+        <tr class="item chaat" onclick="addItem('Cheese Pani Puri', 70)"><td>Cheese Pani Puri</td><td class="price">₹70</td></tr>
+        <tr class="item chaat" onclick="addItem('Bhel Puri', 50)"><td>Bhel Puri</td><td class="price">₹50</td></tr>
+        <tr class="item chaat" onclick="addItem('Sev Puri', 60)"><td>Sev Puri</td><td class="price">₹60</td></tr>
+        <tr class="item chaat" onclick="addItem('Dahi Puri', 70)"><td>Dahi Puri</td><td class="price">₹70</td></tr>
+        <tr class="item chaat" onclick="addItem('Aloo Tikki Chaat', 90)"><td>Aloo Tikki Chaat</td><td class="price">₹90</td></tr>
+        <tr class="item chaat" onclick="addItem('Samosa Chaat', 80)"><td>Samosa Chaat</td><td class="price">₹80</td></tr>
+        <tr class="item chaat" onclick="addItem('Kachori Chaat', 80)"><td>Kachori Chaat</td><td class="price">₹80</td></tr>
+        <tr class="item chaat" onclick="addItem('Papdi Chaat', 75)"><td>Papdi Chaat</td><td class="price">₹75</td></tr>
+        <tr class="item chaat" onclick="addItem('Raj Kachori', 120)"><td>Raj Kachori</td><td class="price">₹120</td></tr>
+        <tr class="item chaat" onclick="addItem('Basket Chaat', 150)"><td>Basket Chaat</td><td class="price">₹150</td></tr>
+        <tr class="item chaat" onclick="addItem('Dahi Bhalla', 90)"><td>Dahi Bhalla</td><td class="price">₹90</td></tr>
+        <tr class="item chaat" onclick="addItem('Ragda Pattice', 100)"><td>Ragda Pattice</td><td class="price">₹100</td></tr>
+        <tr class="item chaat" onclick="addItem('Corn Chaat', 85)"><td>Corn Chaat</td><td class="price">₹85</td></tr>
+        <tr class="item chaat" onclick="addItem('Peanut Chaat', 70)"><td>Peanut Chaat</td><td class="price">₹70</td></tr>
+        <tr class="item chaat" onclick="addItem('Chinese Bhel', 110)"><td>Chinese Bhel</td><td class="price">₹110</td></tr>
+        <tr class="item chaat" onclick="addItem('Palak Patta Chaat', 130)"><td>Palak Patta Chaat</td><td class="price">₹130</td></tr>
+        <tr class="item chaat" onclick="addItem('Aloo Chaat', 60)"><td>Aloo Chaat</td><td class="price">₹60</td></tr>
+        <tr class="item chaat" onclick="addItem('Dahi Kachori', 90)"><td>Dahi Kachori</td><td class="price">₹90</td></tr>
+        <tr class="item chaat" onclick="addItem('Matar Kulcha', 110)"><td>Matar Kulcha</td><td class="price">₹110</td></tr>
+        <tr class="item chaat" onclick="addItem('Sukha Bhel', 40)"><td>Sukha Bhel</td><td class="price">₹40</td></tr>
+        <!-- MAIN COURSE - PANEER & VEG (70+ Items) -->
+        <tr class="item main" onclick="addItem('Paneer Butter Masala', 220)"><td>Paneer Butter Masala</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Tikka Masala', 240)"><td>Paneer Tikka Masala</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Kadhai Paneer', 230)"><td>Kadhai Paneer</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Shahi Paneer', 250)"><td>Shahi Paneer</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Matar Paneer', 210)"><td>Matar Paneer</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Palak Paneer', 220)"><td>Palak Paneer</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Do Pyaza', 235)"><td>Paneer Do Pyaza</td><td class="price">₹235</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Pasanda', 260)"><td>Paneer Pasanda</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Lababdar', 245)"><td>Paneer Lababdar</td><td class="price">₹245</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Bhurji', 190)"><td>Paneer Bhurji</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Malai Kofta', 240)"><td>Malai Kofta</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kofta', 200)"><td>Veg Kofta</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Nargisi Kofta', 250)"><td>Nargisi Kofta</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Mix Vegetable', 180)"><td>Mix Vegetable</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Veg Jalfrezi', 195)"><td>Veg Jalfrezi</td><td class="price">₹195</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kolhapuri', 210)"><td>Veg Kolhapuri</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Veg Makhanwala', 220)"><td>Veg Makhanwala</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kadhai', 200)"><td>Veg Kadhai</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Gobi Musallam', 170)"><td>Aloo Gobi Musallam</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Matar', 160)"><td>Aloo Matar</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Jeera Aloo', 140)"><td>Jeera Aloo</td><td class="price">₹140</td></tr>
+        <tr class="item main" onclick="addItem('Dum Aloo Kashmiri', 230)"><td>Dum Aloo Kashmiri</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Dum Aloo Punjabi', 210)"><td>Dum Aloo Punjabi</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Bhindi Do Pyaza', 180)"><td>Bhindi Do Pyaza</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Bhindi Masala', 170)"><td>Bhindi Masala</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Baingan Bharta', 190)"><td>Baingan Bharta</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Baingan', 160)"><td>Aloo Baingan</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Masala', 230)"><td>Mushroom Masala</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Kadhai Mushroom', 240)"><td>Kadhai Mushroom</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Matar Mushroom', 220)"><td>Matar Mushroom</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Baby Corn Masala', 210)"><td>Baby Corn Masala</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Methi Matar Malai', 230)"><td>Methi Matar Malai</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Sarson Ka Saag', 200)"><td>Sarson Ka Saag</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Dal Makhani', 210)"><td>Dal Makhani</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Dal Tadka (Yellow)', 160)"><td>Dal Tadka</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Dal Fry', 150)"><td>Dal Fry</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Panchratna Dal', 180)"><td>Panchratna Dal</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Chole Masala', 170)"><td>Chole Masala</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Rajma Masala', 170)"><td>Rajma Masala</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Kadi Pakoda', 160)"><td>Kadi Pakoda</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Sev Tamatar', 150)"><td>Sev Tamatar</td><td class="price">₹150</td></tr>
+
+        <!-- THALI SPECIALS (50+ Items) -->
+        <tr class="item thali" onclick="addItem('Basic Veg Thali', 150)"><td>Basic Veg Thali</td><td class="price">₹150</td></tr>
+        <tr class="item thali" onclick="addItem('Standard Thali', 200)"><td>Standard Thali</td><td class="price">₹200</td></tr>
+        <tr class="item thali" onclick="addItem('Deluxe Veg Thali', 280)"><td>Deluxe Veg Thali</td><td class="price">₹280</td></tr>
+        <tr class="item thali" onclick="addItem('Maharaja Thali', 450)"><td>Maharaja Thali</td><td class="price">₹450</td></tr>
+        <tr class="item thali" onclick="addItem('Punjabi Thali', 320)"><td>Punjabi Thali</td><td class="price">₹320</td></tr>
+        <tr class="item thali" onclick="addItem('Gujarati Thali', 300)"><td>Gujarati Thali</td><td class="price">₹300</td></tr>
+        <tr class="item thali" onclick="addItem('Rajasthani Thali', 350)"><td>Rajasthani Thali</td><td class="price">₹350</td></tr>
+        <tr class="item thali" onclick="addItem('South Indian Thali', 250)"><td>South Indian Thali</td><td class="price">₹250</td></tr>
+        <tr class="item thali" onclick="addItem('Jain Special Thali', 280)"><td>Jain Special Thali</td><td class="price">₹280</td></tr>
+        <tr class="item thali" onclick="addItem('Executive Thali', 350)"><td>Executive Thali</td><td class="price">₹350</td></tr>
+        <tr class="item thali" onclick="addItem('Mini Thali', 120)"><td>Mini Thali</td><td class="price">₹120</td></tr>
+        <tr class="item thali" onclick="addItem('Fixed Lunch Thali', 180)"><td>Fixed Lunch Thali</td><td class="price">₹180</td></tr>
+        <tr class="item thali" onclick="addItem('Special Sunday Thali', 400)"><td>Special Sunday Thali</td><td class="price">₹400</td></tr>
+        <tr class="item thali" onclick="addItem('Corporate Meal Box', 220)"><td>Corporate Meal Box</td><td class="price">₹220</td></tr>
+        <tr class="item thali" onclick="addItem('Diet Meal Thali', 250)"><td>Diet Meal Thali</td><td class="price">₹250</td></tr>
+        <tr class="item thali" onclick="addItem('Upvas (Fasting) Thali', 200)"><td>Upvas Thali</td><td class="price">₹200</td></tr>
+        <tr class="item thali" onclick="addItem('Kids Happy Meal', 180)"><td>Kids Happy Meal</td><td class="price">₹180</td></tr>
+        <tr class="item thali" onclick="addItem('North Indian Feast', 380)"><td>North Indian Feast</td><td class="price">₹380</td></tr>
+        <tr class="item thali" onclick="addItem('Bengali Special Thali', 320)"><td>Bengali Thali</td><td class="price">₹320</td></tr>
+        <tr class="item thali" onclick="addItem('Hyderabadi Thali', 340)"><td>Hyderabadi Thali</td><td class="price">₹340</td></tr>
+        <!-- BREADS (30 Items) -->
+        <tr class="item bread" onclick="addItem('Tandoori Roti Plain', 15)"><td>Tandoori Roti Plain</td><td class="price">₹15</td></tr>
+        <tr class="item bread" onclick="addItem('Butter Tandoori Roti', 20)"><td>Butter Tandoori Roti</td><td class="price">₹20</td></tr>
+        <tr class="item bread" onclick="addItem('Missi Roti Plain', 35)"><td>Missi Roti Plain</td><td class="price">₹35</td></tr>
+        <tr class="item bread" onclick="addItem('Butter Missi Roti', 40)"><td>Butter Missi Roti</td><td class="price">₹40</td></tr>
+        <tr class="item bread" onclick="addItem('Plain Naan', 45)"><td>Plain Naan</td><td class="price">₹45</td></tr>
+        <tr class="item bread" onclick="addItem('Butter Naan', 55)"><td>Butter Naan</td><td class="price">₹55</td></tr>
+        <tr class="item bread" onclick="addItem('Garlic Butter Naan', 70)"><td>Garlic Butter Naan</td><td class="price">₹70</td></tr>
+        <tr class="item bread" onclick="addItem('Cheese Garlic Naan', 90)"><td>Cheese Garlic Naan</td><td class="price">₹90</td></tr>
+        <tr class="item bread" onclick="addItem('Kandhari Naan', 110)"><td>Kandhari Naan</td><td class="price">₹110</td></tr>
+        <tr class="item bread" onclick="addItem('Peshawari Naan', 120)"><td>Peshawari Naan</td><td class="price">₹120</td></tr>
+        <tr class="item bread" onclick="addItem('Laccha Paratha', 50)"><td>Laccha Paratha</td><td class="price">₹50</td></tr>
+        <tr class="item bread" onclick="addItem('Pudina Paratha', 55)"><td>Pudina Paratha</td><td class="price">₹55</td></tr>
+        <tr class="item bread" onclick="addItem('Aloo Paratha', 70)"><td>Aloo Paratha</td><td class="price">₹70</td></tr>
+        <tr class="item bread" onclick="addItem('Paneer Paratha', 90)"><td>Paneer Paratha</td><td class="price">₹90</td></tr>
+        <tr class="item bread" onclick="addItem('Gobi Paratha', 70)"><td>Gobi Paratha</td><td class="price">₹70</td></tr>
+        <tr class="item bread" onclick="addItem('Mooli Paratha', 65)"><td>Mooli Paratha</td><td class="price">₹65</td></tr>
+        <tr class="item bread" onclick="addItem('Onion Kulcha', 60)"><td>Onion Kulcha</td><td class="price">₹60</td></tr>
+        <tr class="item bread" onclick="addItem('Paneer Kulcha', 85)"><td>Paneer Kulcha</td><td class="price">₹85</td></tr>
+        <tr class="item bread" onclick="addItem('Amritsari Kulcha', 100)"><td>Amritsari Kulcha</td><td class="price">₹100</td></tr>
+        <tr class="item bread" onclick="addItem('Plain Poori', 30)"><td>Plain Poori</td><td class="price">₹30</td></tr>
+        <tr class="item bread" onclick="addItem('Butter Poori', 40)"><td>Butter Poori</td><td class="price">₹40</td></tr>
+        <tr class="item bread" onclick="addItem('Bhatura', 80)"><td>Bhatura</td><td class="price">₹80</td></tr>
+        <tr class="item bread" onclick="addItem('Rumali Roti', 35)"><td>Rumali Roti</td><td class="price">₹35</td></tr>
+        <tr class="item bread" onclick="addItem('Phulka Plain', 12)"><td>Phulka Plain</td><td class="price">₹12</td></tr>
+        <tr class="item bread" onclick="addItem('Phulka Ghee', 15)"><td>Phulka Ghee</td><td class="price">₹15</td></tr>
+        <tr class="item bread" onclick="addItem('Khasta Roti', 30)"><td>Khasta Roti</td><td class="price">₹30</td></tr>
+        <tr class="item bread" onclick="addItem('Bajra Roti', 25)"><td>Bajra Roti</td><td class="price">₹25</td></tr>
+        <tr class="item bread" onclick="addItem('Makki Di Roti', 35)"><td>Makki Di Roti</td><td class="price">₹35</td></tr>
+        <tr class="item bread" onclick="addItem('Keema Naan Veg', 100)"><td>Keema Naan Veg</td><td class="price">₹100</td></tr>
+        <tr class="item bread" onclick="addItem('Stuffed Naan', 80)"><td>Stuffed Naan</td><td class="price">₹80</td></tr>
+
+        <!-- RICE & BIRYANI (40 Items) -->
+        <tr class="item rice" onclick="addItem('Steamed Rice', 100)"><td>Steamed Rice</td><td class="price">₹100</td></tr>
+        <tr class="item rice" onclick="addItem('Jeera Rice', 140)"><td>Jeera Rice</td><td class="price">₹140</td></tr>
+        <tr class="item rice" onclick="addItem('Matar Pulao', 160)"><td>Matar Pulao</td><td class="price">₹160</td></tr>
+        <tr class="item rice" onclick="addItem('Veg Pulao', 180)"><td>Veg Pulao</td><td class="price">₹180</td></tr>
+        <tr class="item rice" onclick="addItem('Kashmiri Pulao', 240)"><td>Kashmiri Pulao</td><td class="price">₹240</td></tr>
+        <tr class="item rice" onclick="addItem('Navratan Pulao', 250)"><td>Navratan Pulao</td><td class="price">₹250</td></tr>
+        <tr class="item rice" onclick="addItem('Paneer Pulao', 220)"><td>Paneer Pulao</td><td class="price">₹220</td></tr>
+        <tr class="item rice" onclick="addItem('Veg Dum Biryani', 220)"><td>Veg Dum Biryani</td><td class="price">₹220</td></tr>
+        <tr class="item rice" onclick="addItem('Hyderabadi Biryani', 250)"><td>Hyderabadi Biryani</td><td class="price">₹250</td></tr>
+        <tr class="item rice" onclick="addItem('Paneer Tikka Biryani', 280)"><td>Paneer Tikka Biryani</td><td class="price">₹280</td></tr>
+        <tr class="item rice" onclick="addItem('Lucknowi Biryani', 260)"><td>Lucknowi Biryani</td><td class="price">₹260</td></tr>
+        <tr class="item rice" onclick="addItem('Handi Biryani', 270)"><td>Handi Biryani</td><td class="price">₹270</td></tr>
+        <tr class="item rice" onclick="addItem('Soya Chaap Biryani', 230)"><td>Soya Chaap Biryani</td><td class="price">₹230</td></tr>
+        <tr class="item rice" onclick="addItem('Dal Khichdi Plain', 150)"><td>Dal Khichdi Plain</td><td class="price">₹150</td></tr>
+        <tr class="item rice" onclick="addItem('Masala Khichdi', 180)"><td>Masala Khichdi</td><td class="price">₹180</td></tr>
+        <tr class="item rice" onclick="addItem('Palak Khichdi', 190)"><td>Palak Khichdi</td><td class="price">₹190</td></tr>
+        <tr class="item rice" onclick="addItem('Curd Rice', 140)"><td>Curd Rice</td><td class="price">₹140</td></tr>
+        <tr class="item rice" onclick="addItem('Lemon Rice', 150)"><td>Lemon Rice</td><td class="price">₹150</td></tr>
+        <tr class="item rice" onclick="addItem('Tamarind Rice', 160)"><td>Tamarind Rice</td><td class="price">₹160</td></tr>
+        <tr class="item rice" onclick="addItem('Tomato Rice', 155)"><td>Tomato Rice</td><td class="price">₹155</td></tr>
+        <tr class="item rice" onclick="addItem('Coconut Rice', 170)"><td>Coconut Rice</td><td class="price">₹170</td></tr>
+        <tr class="item rice" onclick="addItem('Bisi Bele Bath', 180)"><td>Bisi Bele Bath</td><td class="price">₹180</td></tr>
+        <tr class="item rice" onclick="addItem('Ghee Rice', 190)"><td>Ghee Rice</td><td class="price">₹190</td></tr>
+        <tr class="item rice" onclick="addItem('Mushroom Pulao', 210)"><td>Mushroom Pulao</td><td class="price">₹210</td></tr>
+        <tr class="item rice" onclick="addItem('Brown Rice', 130)"><td>Brown Rice</td><td class="price">₹130</td></tr>
+        <tr class="item rice" onclick="addItem('Tawa Pulao', 160)"><td>Tawa Pulao</td><td class="price">₹160</td></tr>
+        <tr class="item rice" onclick="addItem('Shahi Gucchi Pulao', 350)"><td>Shahi Gucchi Pulao</td><td class="price">₹350</td></tr>
+        <tr class="item rice" onclick="addItem('Veg Tehri', 170)"><td>Veg Tehri</td><td class="price">₹170</td></tr>
+        <tr class="item rice" onclick="addItem('Garlic Fried Rice', 180)"><td>Garlic Fried Rice</td><td class="price">₹180</td></tr>
+        <tr class="item rice" onclick="addItem('Saffron Rice', 200)"><td>Saffron Rice</td><td class="price">₹200</td></tr>
+        <tr class="item rice" onclick="addItem('Vada Pav Rice', 150)"><td>Vada Pav Rice</td><td class="price">₹150</td></tr>
+        <tr class="item rice" onclick="addItem('Kadhi Chawal', 160)"><td>Kadhi Chawal</td><td class="price">₹160</td></tr>
+        <tr class="item rice" onclick="addItem('Rajma Chawal', 170)"><td>Rajma Chawal</td><td class="price">₹170</td></tr>
+        <tr class="item rice" onclick="addItem('Chole Chawal', 170)"><td>Chole Chawal</td><td class="price">₹170</td></tr>
+        <tr class="item rice" onclick="addItem('Schezwan Veg Biryani', 240)"><td>Schezwan Veg Biryani</td><td class="price">₹240</td></tr>
+        <tr class="item rice" onclick="addItem('Jackfruit Biryani', 280)"><td>Jackfruit Biryani</td><td class="price">₹280</td></tr>
+        <tr class="item rice" onclick="addItem('Mushroom Biryani', 260)"><td>Mushroom Biryani</td><td class="price">₹260</td></tr>
+        <tr class="item rice" onclick="addItem('Corn Biryani', 220)"><td>Corn Biryani</td><td class="price">₹220</td></tr>
+        <tr class="item rice" onclick="addItem('Methi Pulao', 180)"><td>Methi Pulao</td><td class="price">₹180</td></tr>
+        <tr class="item rice" onclick="addItem('Spring Onion Rice', 170)"><td>Spring Onion Rice</td><td class="price">₹170</td></tr>
+
+        <!-- SOUTH INDIAN (50 Items) -->
+        <tr class="item south" onclick="addItem('Plain Dosa', 70)"><td>Plain Dosa</td><td class="price">₹70</td></tr>
+        <tr class="item south" onclick="addItem('Butter Dosa', 90)"><td>Butter Dosa</td><td class="price">₹90</td></tr>
+        <tr class="item south" onclick="addItem('Paper Thin Dosa', 100)"><td>Paper Thin Dosa</td><td class="price">₹100</td></tr>
+        <tr class="item south" onclick="addItem('Masala Dosa', 110)"><td>Masala Dosa</td><td class="price">₹110</td></tr>
+        <tr class="item south" onclick="addItem('Mysore Masala Dosa', 130)"><td>Mysore Masala Dosa</td><td class="price">₹130</td></tr>
+        <tr class="item south" onclick="addItem('Onion Masala Dosa', 120)"><td>Onion Masala Dosa</td><td class="price">₹120</td></tr>
+        <tr class="item south" onclick="addItem('Paneer Masala Dosa', 150)"><td>Paneer Masala Dosa</td><td class="price">₹150</td></tr>
+        <tr class="item south" onclick="addItem('Cheese Masala Dosa', 160)"><td>Cheese Masala Dosa</td><td class="price">₹160</td></tr>
+        <tr class="item south" onclick="addItem('Schezwan Dosa', 140)"><td>Schezwan Dosa</td><td class="price">₹140</td></tr>
+        <tr class="item south" onclick="addItem('Spring Roll Dosa', 170)"><td>Spring Roll Dosa</td><td class="price">₹170</td></tr>
+        <tr class="item south" onclick="addItem('Chocolate Dosa', 150)"><td>Chocolate Dosa</td><td class="price">₹150</td></tr>
+        <tr class="item south" onclick="addItem('Set Dosa', 110)"><td>Set Dosa</td><td class="price">₹110</td></tr>
+        <tr class="item south" onclick="addItem('Rava Plain Dosa', 100)"><td>Rava Plain Dosa</td><td class="price">₹100</td></tr>
+        <tr class="item south" onclick="addItem('Rava Masala Dosa', 130)"><td>Rava Masala Dosa</td><td class="price">₹130</td></tr>
+        <tr class="item south" onclick="addItem('Rava Paneer Dosa', 160)"><td>Rava Paneer Dosa</td><td class="price">₹160</td></tr>
+        <tr class="item south" onclick="addItem('Onion Uttapam', 120)"><td>Onion Uttapam</td><td class="price">₹120</td></tr>
+        <tr class="item south" onclick="addItem('Tomato Uttapam', 120)"><td>Tomato Uttapam</td><td class="price">₹120</td></tr>
+        <tr class="item south" onclick="addItem('Mix Veg Uttapam', 140)"><td>Mix Veg Uttapam</td><td class="price">₹140</td></tr>
+        <tr class="item south" onclick="addItem('Paneer Uttapam', 160)"><td>Paneer Uttapam</td><td class="price">₹160</td></tr>
+        <tr class="item south" onclick="addItem('Cheese Uttapam', 170)"><td>Cheese Uttapam</td><td class="price">₹170</td></tr>
+        <tr class="item south" onclick="addItem('Idli Sambar', 60)"><td>Idli Sambar</td><td class="price">₹60</td></tr>
+        <tr class="item south" onclick="addItem('Butter Idli', 80)"><td>Butter Idli</td><td class="price">₹80</td></tr>
+        <tr class="item south" onclick="addItem('Fried Idli Masala', 100)"><td>Fried Idli Masala</td><td class="price">₹100</td></tr>
+        <tr class="item south" onclick="addItem('Mini Idli', 90)"><td>Mini Idli</td><td class="price">₹90</td></tr>
+        <tr class="item south" onclick="addItem('Kanchipuram Idli', 110)"><td>Kanchipuram Idli</td><td class="price">₹110</td></tr>
+        <tr class="item south" onclick="addItem('Medu Vada', 80)"><td>Medu Vada</td><td class="price">₹80</td></tr>
+        <tr class="item south" onclick="addItem('Sambar Vada', 90)"><td>Sambar Vada</td><td class="price">₹90</td></tr>
+        <tr class="item south" onclick="addItem('Rasa Vada', 85)"><td>Rasa Vada</td><td class="price">₹85</td></tr>
+        <tr class="item south" onclick="addItem('Dahi Vada', 100)"><td>Dahi Vada</td><td class="price">₹100</td></tr>
+        <tr class="item south" onclick="addItem('Upma Classic', 60)"><td>Upma Classic</td><td class="price">₹60</td></tr>
+        <tr class="item south" onclick="addItem('Veg Upma', 80)"><td>Veg Upma</td><td class="price">₹80</td></tr>
+        <tr class="item south" onclick="addItem('Rava Kesari', 90)"><td>Rava Kesari</td><td class="price">₹90</td></tr>
+        <tr class="item south" onclick="addItem('Appam', 70)"><td>Appam</td><td class="price">₹70</td></tr>
+        <tr class="item south" onclick="addItem('Appam with Stew', 180)"><td>Appam with Stew</td><td class="price">₹180</td></tr>
+        <tr class="item south" onclick="addItem('Idiyappam', 80)"><td>Idiyappam</td><td class="price">₹80</td></tr>
+        <tr class="item south" onclick="addItem('Puttu Kadala Curry', 160)"><td>Puttu Kadala Curry</td><td class="price">₹160</td></tr>
+        <tr class="item south" onclick="addItem('Adai Dosa', 120)"><td>Adai Dosa</td><td class="price">₹120</td></tr>
+        <tr class="item south" onclick="addItem('Pesarattu', 130)"><td>Pesarattu</td><td class="price">₹130</td></tr>
+        <tr class="item south" onclick="addItem('Malabar Paratha', 90)"><td>Malabar Paratha</td><td class="price">₹90</td></tr>
+        <tr class="item south" onclick="addItem('Malabar Veg Korma', 180)"><td>Malabar Veg Korma</td><td class="price">₹180</td></tr>
+        <tr class="item south" onclick="addItem('Neer Dosa', 100)"><td>Neer Dosa</td><td class="price">₹100</td></tr>
+        <tr class="item south" onclick="addItem('Podi Idli', 110)"><td>Podi Idli</td><td class="price">₹110</td></tr>
+        <tr class="item south" onclick="addItem('Podi Dosa', 120)"><td>Podi Dosa</td><td class="price">₹120</td></tr>
+        <tr class="item south" onclick="addItem('Gun Powder Idli', 115)"><td>Gun Powder Idli</td><td class="price">₹115</td></tr>
+        <tr class="item south" onclick="addItem('Andhra Spicy Dosa', 140)"><td>Andhra Spicy Dosa</td><td class="price">₹140</td></tr>
+        <tr class="item south" onclick="addItem('Kottu Parotta Veg', 160)"><td>Kottu Parotta Veg</td><td class="price">₹160</td></tr>
+        <tr class="item south" onclick="addItem('Avial Special', 170)"><td>Avial Special</td><td class="price">₹170</td></tr>
+        <tr class="item south" onclick="addItem('Pineapple Rasam', 80)"><td>Pineapple Rasam</td><td class="price">₹80</td></tr>
+        <tr class="item south" onclick="addItem('Tomato Rasam', 60)"><td>Tomato Rasam</td><td class="price">₹60</td></tr>
+        <tr class="item south" onclick="addItem('Medhu Bondas', 100)"><td>Medhu Bondas</td><td class="price">₹100</td></tr>
+
+        <!-- CHINESE (50 Items) -->
+        <tr class="item inter" onclick="addItem('Veg Hakka Noodles', 150)"><td>Veg Hakka Noodles</td><td class="price">₹150</td></tr>
+        <tr class="item inter" onclick="addItem('Schezwan Noodles', 170)"><td>Schezwan Noodles</td><td class="price">₹170</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Garlic Noodles', 180)"><td>Chilli Garlic Noodles</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Singapuri Noodles', 190)"><td>Singapuri Noodles</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('American Chopsuey', 210)"><td>American Chopsuey</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Chinese Chopsuey', 200)"><td>Chinese Chopsuey</td><td class="price">₹200</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Fried Rice', 160)"><td>Veg Fried Rice</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Schezwan Fried Rice', 180)"><td>Schezwan Fried Rice</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Burned Garlic Rice', 190)"><td>Burned Garlic Rice</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Fried Rice', 210)"><td>Paneer Fried Rice</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Mushroom Fried Rice', 200)"><td>Mushroom Fried Rice</td><td class="price">₹200</td></tr>
+        <tr class="item inter" onclick="addItem('Triple Schezwan Rice', 250)"><td>Triple Schezwan Rice</td><td class="price">₹250</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Manchurian Dry', 170)"><td>Veg Manchurian Dry</td><td class="price">₹170</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Manchurian Gravy', 190)"><td>Veg Manchurian Gravy</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('Gobi Manchurian Dry', 160)"><td>Gobi Manchurian Dry</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Gobi Manchurian Gravy', 180)"><td>Gobi Manchurian Gravy</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Paneer Dry', 220)"><td>Chilli Paneer Dry</td><td class="price">₹220</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Paneer Gravy', 240)"><td>Chilli Paneer Gravy</td><td class="price">₹240</td></tr>
+        <tr class="item inter" onclick="addItem('Honey Chilli Potato', 160)"><td>Honey Chilli Potato</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Mushroom Dry', 210)"><td>Chilli Mushroom Dry</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Crispy Corn', 180)"><td>Crispy Corn</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Crispy Special', 200)"><td>Veg Crispy Special</td><td class="price">₹200</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Soya Chaap', 190)"><td>Chilli Soya Chaap</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer 65 Dry', 230)"><td>Paneer 65 Dry</td><td class="price">₹230</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Spring Rolls', 150)"><td>Veg Spring Rolls</td><td class="price">₹150</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Momos Steam', 120)"><td>Veg Momos Steam</td><td class="price">₹120</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Momos Fried', 140)"><td>Veg Momos Fried</td><td class="price">₹140</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Momos Steam', 150)"><td>Paneer Momos Steam</td><td class="price">₹150</td></tr>
+        <tr class="item inter" onclick="addItem('Schezwan Momos', 160)"><td>Schezwan Momos</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Kurkure Momos Veg', 170)"><td>Kurkure Momos Veg</td><td class="price">₹170</td></tr>
+        <tr class="item inter" onclick="addItem('Tandoori Momos Veg', 180)"><td>Tandoori Momos Veg</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Chilli Baby Corn', 200)"><td>Chilli Baby Corn</td><td class="price">₹200</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Lollipop', 180)"><td>Veg Lollipop</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Kimchi Salad', 80)"><td>Kimchi Salad</td><td class="price">₹80</td></tr>
+        <tr class="item inter" onclick="addItem('Dragon Potato', 170)"><td>Dragon Potato</td><td class="price">₹170</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Satay', 250)"><td>Paneer Satay</td><td class="price">₹250</td></tr>
+        <tr class="item inter" onclick="addItem('Balls Garlic Sauce', 190)"><td>Balls Garlic Sauce</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('Mushroom Hot Garlic', 210)"><td>Mushroom Hot Garlic</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Oyster Sauce', 260)"><td>Veg Oyster Sauce</td><td class="price">₹260</td></tr>
+        <tr class="item inter" onclick="addItem('Stir Fried Tofu', 220)"><td>Stir Fried Tofu</td><td class="price">₹220</td></tr>
+        <tr class="item inter" onclick="addItem('Kung Pao Veg', 240)"><td>Kung Pao Veg</td><td class="price">₹240</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Black Bean', 230)"><td>Paneer Black Bean</td><td class="price">₹230</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Fried Wanton', 160)"><td>Veg Fried Wanton</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Schezwan Tawa Pizza', 200)"><td>Schezwan Tawa Pizza</td><td class="price">₹200</td></tr>
+        <tr class="item inter" onclick="addItem('Manchow Soup', 110)"><td>Manchow Soup</td><td class="price">₹110</td></tr>
+        <tr class="item inter" onclick="addItem('Hot & Sour Soup', 110)"><td>Hot & Sour Soup</td><td class="price">₹110</td></tr>
+        <tr class="item inter" onclick="addItem('Sweet Corn Soup', 110)"><td>Sweet Corn Soup</td><td class="price">₹110</td></tr>
+        <tr class="item inter" onclick="addItem('Clear Veg Soup', 100)"><td>Clear Veg Soup</td><td class="price">₹100</td></tr>
+        <tr class="item inter" onclick="addItem('Lemon Coriander Soup', 120)"><td>Lemon Coriander Soup</td><td class="price">₹120</td></tr>
+        <tr class="item inter" onclick="addItem('Burmese Khao Suey', 280)"><td>Burmese Khao Suey</td><td class="price">₹280</td></tr>
+        <!-- PANEER SPECIALTIES (30 Items) -->
+        <tr class="item main" onclick="addItem('Paneer Butter Masala', 240)"><td>Paneer Butter Masala</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Shahi Paneer', 250)"><td>Shahi Paneer</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Kadai Paneer', 230)"><td>Kadai Paneer</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Lababdar', 260)"><td>Paneer Lababdar</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Tikka Masala', 280)"><td>Paneer Tikka Masala</td><td class="price">₹280</td></tr>
+        <tr class="item main" onclick="addItem('Matar Paneer', 210)"><td>Matar Paneer</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Palak Paneer', 220)"><td>Palak Paneer</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Pasanda', 270)"><td>Paneer Pasanda</td><td class="price">₹270</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Do Pyaza', 230)"><td>Paneer Do Pyaza</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Bhurji Dry', 200)"><td>Paneer Bhurji Dry</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Bhurji Gravy', 220)"><td>Paneer Bhurji Gravy</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Kali Mirch', 250)"><td>Paneer Kali Mirch</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Jalfrezi', 240)"><td>Paneer Jalfrezi</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Methi Malai Paneer', 260)"><td>Methi Malai Paneer</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Handi', 250)"><td>Paneer Handi</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Kolhapuri', 240)"><td>Paneer Kolhapuri</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Makhani', 250)"><td>Paneer Makhani</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Methi Chaman', 260)"><td>Paneer Methi Chaman</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Achari', 240)"><td>Paneer Achari</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Dhansak', 230)"><td>Paneer Dhansak</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Mughlai Paneer', 270)"><td>Mughlai Paneer</td><td class="price">₹270</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Rezala', 280)"><td>Paneer Rezala</td><td class="price">₹280</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Khurchan', 260)"><td>Paneer Khurchan</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Tawa Paneer Masala', 250)"><td>Tawa Paneer Masala</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Hyderabadi Paneer', 240)"><td>Hyderabadi Paneer</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Amritsari Paneer', 250)"><td>Amritsari Paneer</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Rajasthani Paneer', 240)"><td>Rajasthani Paneer</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Dum Paneer Kali Mirch', 270)"><td>Dum Paneer Kali Mirch</td><td class="price">₹270</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Korma', 260)"><td>Paneer Korma</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Malai Paneer Tikka Gravy', 290)"><td>Malai Paneer Tikka Gravy</td><td class="price">₹290</td></tr>
+
+        <!-- VEGETABLE CURRIES (40 Items) -->
+        <tr class="item main" onclick="addItem('Mix Vegetable', 180)"><td>Mix Vegetable</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Veg Jalfrezi', 190)"><td>Veg Jalfrezi</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Veg Handi', 200)"><td>Veg Handi</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kadai', 190)"><td>Veg Kadai</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kolhapuri', 200)"><td>Veg Kolhapuri</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Veg Makhanwala', 210)"><td>Veg Makhanwala</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Gobi Matar', 160)"><td>Aloo Gobi Matar</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Jeera', 140)"><td>Aloo Jeera</td><td class="price">₹140</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Dum Kashmiri', 220)"><td>Aloo Dum Kashmiri</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Dum Banarasi', 210)"><td>Aloo Dum Banarasi</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Matar', 150)"><td>Aloo Matar</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Baingan', 150)"><td>Aloo Baingan</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Aloo Shimla Mirch', 160)"><td>Aloo Shimla Mirch</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Baingan Bharta', 180)"><td>Baingan Bharta</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Bhindi Do Pyaza', 170)"><td>Bhindi Do Pyaza</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Bhindi Masala', 160)"><td>Bhindi Masala</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Bhindi Fry', 150)"><td>Bhindi Fry</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Gobi Masala', 160)"><td>Gobi Masala</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Gobi Adraki', 170)"><td>Gobi Adraki</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Matar Masala', 160)"><td>Matar Masala</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Chana Masala', 170)"><td>Chana Masala</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Pindi Chole', 190)"><td>Pindi Chole</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Amritsari Chole', 180)"><td>Amritsari Chole</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Rajma Masala', 170)"><td>Rajma Masala</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Sarson Da Saag', 200)"><td>Sarson Da Saag</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Methi Matar Malai', 220)"><td>Methi Matar Malai</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Corn Palak', 210)"><td>Corn Palak</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Corn Masala', 190)"><td>Corn Masala</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Baby Corn Masala', 210)"><td>Baby Corn Masala</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Veg Keema Masala', 200)"><td>Veg Keema Masala</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Veg Navratan Korma', 250)"><td>Veg Navratan Korma</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Veg Tawa Fry', 200)"><td>Veg Tawa Fry</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Dum Aloo Punjabi', 210)"><td>Dum Aloo Punjabi</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Kaju Butter Masala', 280)"><td>Kaju Butter Masala</td><td class="price">₹280</td></tr>
+        <tr class="item main" onclick="addItem('Kaju Curry', 270)"><td>Kaju Curry</td><td class="price">₹270</td></tr>
+        <tr class="item main" onclick="addItem('Kaju Khoya Paneer', 290)"><td>Kaju Khoya Paneer</td><td class="price">₹290</td></tr>
+        <tr class="item main" onclick="addItem('Veg Jaipuri', 210)"><td>Veg Jaipuri</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Veg Diwani Handi', 230)"><td>Veg Diwani Handi</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Veg Afghani', 240)"><td>Veg Afghani</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Veg Maratha', 220)"><td>Veg Maratha</td><td class="price">₹220</td></tr>
+
+        <!-- KOFTA & MUSHROOM (20 Items) -->
+        <tr class="item main" onclick="addItem('Malai Kofta White', 260)"><td>Malai Kofta White</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Malai Kofta Red', 260)"><td>Malai Kofta Red</td><td class="price">₹260</td></tr>
+        <tr class="item main" onclick="addItem('Veg Kofta', 210)"><td>Veg Kofta</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Paneer Kofta', 240)"><td>Paneer Kofta</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Nargisi Kofta Veg', 250)"><td>Nargisi Kofta Veg</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Lauki Kofta', 180)"><td>Lauki Kofta</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Palak Kofta', 200)"><td>Palak Kofta</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Matar', 210)"><td>Mushroom Matar</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Masala', 220)"><td>Mushroom Masala</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Kadai Mushroom', 230)"><td>Kadai Mushroom</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Do Pyaza', 230)"><td>Mushroom Do Pyaza</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Butter Masala', 240)"><td>Mushroom Butter Masala</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Jalfrezi', 220)"><td>Mushroom Jalfrezi</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Tikka Masala', 250)"><td>Mushroom Tikka Masala</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Tawa Mushroom', 230)"><td>Tawa Mushroom</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Baby Corn', 240)"><td>Mushroom Baby Corn</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Hara Pyaza', 210)"><td>Mushroom Hara Pyaza</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Shahi Mushroom', 250)"><td>Shahi Mushroom</td><td class="price">₹250</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Handi', 230)"><td>Mushroom Handi</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Mushroom Kolhapuri', 220)"><td>Mushroom Kolhapuri</td><td class="price">₹220</td></tr>
+
+        <!-- SOYA & SPECIAL GRAVIES (15 Items) -->
+        <tr class="item main" onclick="addItem('Soya Chaap Masala', 190)"><td>Soya Chaap Masala</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Soya Chaap Gravy', 180)"><td>Soya Chaap Gravy</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Soya Chaap Butter Masala', 210)"><td>Soya Chaap Butter Masala</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Kadai Soya Chaap', 200)"><td>Kadai Soya Chaap</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Soya Keema Masala', 190)"><td>Soya Keema Masala</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Soya Tikka Lababdar', 220)"><td>Soya Tikka Lababdar</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Malai Soya Chaap Gravy', 230)"><td>Malai Soya Chaap Gravy</td><td class="price">₹230</td></tr>
+        <tr class="item main" onclick="addItem('Achari Soya Chaap Gravy', 200)"><td>Achari Soya Chaap Gravy</td><td class="price">₹200</td></tr>
+        <tr class="item main" onclick="addItem('Soya Bhurji', 170)"><td>Soya Bhurji</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Soya Chunk Curry', 160)"><td>Soya Chunk Curry</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Veg Stew', 190)"><td>Veg Stew</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Kathal Masala', 210)"><td>Kathal Masala</td><td class="price">₹210</td></tr>
+        <tr class="item main" onclick="addItem('Karela Masala', 150)"><td>Karela Masala</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Tinda Masala', 140)"><td>Tinda Masala</td><td class="price">₹140</td></tr>
+        <tr class="item main" onclick="addItem('Arbi Masala', 150)"><td>Arbi Masala</td><td class="price">₹150</td></tr>
+
+        <!-- DALS & SEASONAL (15 Items) -->
+        <tr class="item main" onclick="addItem('Dal Makhani', 220)"><td>Dal Makhani</td><td class="price">₹220</td></tr>
+        <tr class="item main" onclick="addItem('Dal Tadka', 160)"><td>Dal Tadka</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Dal Fry', 150)"><td>Dal Fry</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Dal Panchmel', 180)"><td>Dal Panchmel</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Dal Palak', 170)"><td>Dal Palak</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Chana Dal Masala', 160)"><td>Chana Dal Masala</td><td class="price">₹160</td></tr>
+        <tr class="item main" onclick="addItem('Dhaba Dal', 180)"><td>Dhaba Dal</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Dal Maharani', 190)"><td>Dal Maharani</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Yellow Dal Plain', 140)"><td>Yellow Dal Plain</td><td class="price">₹140</td></tr>
+        <tr class="item main" onclick="addItem('Dal Bukhara', 240)"><td>Dal Bukhara</td><td class="price">₹240</td></tr>
+        <tr class="item main" onclick="addItem('Mix Dal Tadka', 170)"><td>Mix Dal Tadka</td><td class="price">₹170</td></tr>
+        <tr class="item main" onclick="addItem('Sindhi Kadhi', 190)"><td>Sindhi Kadhi</td><td class="price">₹190</td></tr>
+        <tr class="item main" onclick="addItem('Punjabi Kadhi Pakora', 180)"><td>Punjabi Kadhi Pakora</td><td class="price">₹180</td></tr>
+        <tr class="item main" onclick="addItem('Veg Raita Curry', 150)"><td>Veg Raita Curry</td><td class="price">₹150</td></tr>
+        <tr class="item main" onclick="addItem('Dal Handi', 180)"><td>Dal Handi</td><td class="price">₹180</td></tr>
+    
+                     <!-- PURE VEG TANDOORI & STARTERS (50 Items) -->
+        <tr class="item starter" onclick="addItem('Paneer Tikka Classic', 240)"><td>Paneer Tikka Classic</td><td class="price">₹240</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Malai Tikka', 260)"><td>Paneer Malai Tikka</td><td class="price">₹260</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Achari Tikka', 250)"><td>Paneer Achari Tikka</td><td class="price">₹250</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Hariyali Tikka', 250)"><td>Paneer Hariyali Tikka</td><td class="price">₹250</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Garlic Tikka', 250)"><td>Paneer Garlic Tikka</td><td class="price">₹250</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Kali Mirch Tikka', 260)"><td>Paneer Kali Mirch Tikka</td><td class="price">₹260</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Afghani Tikka', 270)"><td>Paneer Afghani Tikka</td><td class="price">₹270</td></tr>
+        <tr class="item starter" onclick="addItem('Tandoori Mushroom', 220)"><td>Tandoori Mushroom</td><td class="price">₹220</td></tr>
+        <tr class="item starter" onclick="addItem('Stuffed Mushroom Duplex', 250)"><td>Stuffed Mushroom Duplex</td><td class="price">₹250</td></tr>
+        <tr class="item starter" onclick="addItem('Mushroom Galouti Kebab', 240)"><td>Mushroom Galouti Kebab</td><td class="price">₹240</td></tr>
+        <tr class="item starter" onclick="addItem('Tandoori Soya Chaap', 200)"><td>Tandoori Soya Chaap</td><td class="price">₹200</td></tr>
+        <tr class="item starter" onclick="addItem('Malai Soya Chaap', 220)"><td>Malai Soya Chaap</td><td class="price">₹220</td></tr>
+        <tr class="item starter" onclick="addItem('Achari Soya Chaap', 210)"><td>Achari Soya Chaap</td><td class="price">₹210</td></tr>
+        <tr class="item starter" onclick="addItem('Masala Soya Chaap', 210)"><td>Masala Soya Chaap</td><td class="price">₹210</td></tr>
+        <tr class="item starter" onclick="addItem('Afghani Soya Chaap', 230)"><td>Afghani Soya Chaap</td><td class="price">₹230</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Seekh Kebab', 190)"><td>Veg Seekh Kebab</td><td class="price">₹190</td></tr>
+        <tr class="item starter" onclick="addItem('Hara Bhara Kebab', 180)"><td>Hara Bhara Kebab</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Dahi Ke Sholay', 220)"><td>Dahi Ke Sholay</td><td class="price">₹220</td></tr>
+        <tr class="item starter" onclick="addItem('Dahi Ke Kebab', 220)"><td>Dahi Ke Kebab</td><td class="price">₹220</td></tr>
+        <tr class="item starter" onclick="addItem('Tandoori Aloo Stuffed', 180)"><td>Tandoori Aloo Stuffed</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Aloo Dilkhush', 190)"><td>Aloo Dilkhush</td><td class="price">₹190</td></tr>
+        <tr class="item starter" onclick="addItem('Corn Cheese Balls', 200)"><td>Corn Cheese Balls</td><td class="price">₹200</td></tr>
+        <tr class="item starter" onclick="addItem('Crispy Corn Salt Pepper', 170)"><td>Crispy Corn Salt Pepper</td><td class="price">₹170</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Lollipop', 180)"><td>Veg Lollipop</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer 65', 230)"><td>Paneer 65</td><td class="price">₹230</td></tr>
+        <tr class="item starter" onclick="addItem('Mushroom 65', 210)"><td>Mushroom 65</td><td class="price">₹210</td></tr>
+        <tr class="item starter" onclick="addItem('Baby Corn 65', 200)"><td>Baby Corn 65</td><td class="price">₹200</td></tr>
+        <tr class="item starter" onclick="addItem('Gobi 65', 170)"><td>Gobi 65</td><td class="price">₹170</td></tr>
+        <tr class="item starter" onclick="addItem('Baby Corn Fry', 180)"><td>Baby Corn Fry</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Satay', 240)"><td>Paneer Satay</td><td class="price">₹240</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Galouti Kebab', 230)"><td>Veg Galouti Kebab</td><td class="price">₹230</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Shammi Kebab', 210)"><td>Veg Shammi Kebab</td><td class="price">₹210</td></tr>
+        <tr class="item starter" onclick="addItem('Tandoori Broccoli', 260)"><td>Tandoori Broccoli</td><td class="price">₹260</td></tr>
+        <tr class="item starter" onclick="addItem('Malai Broccoli', 280)"><td>Malai Broccoli</td><td class="price">₹280</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Finger', 200)"><td>Paneer Finger</td><td class="price">₹200</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Cutlet', 150)"><td>Veg Cutlet</td><td class="price">₹150</td></tr>
+        <tr class="item starter" onclick="addItem('Cheese Corn Cutlet', 180)"><td>Cheese Corn Cutlet</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Crispy Veg Fingers', 170)"><td>Crispy Veg Fingers</td><td class="price">₹170</td></tr>
+        <tr class="item starter" onclick="addItem('Potato Wedges', 120)"><td>Potato Wedges</td><td class="price">₹120</td></tr>
+        <tr class="item starter" onclick="addItem('Cheese Loaded Fries', 160)"><td>Cheese Loaded Fries</td><td class="price">₹160</td></tr>
+        <tr class="item starter" onclick="addItem('Peri Peri Fries', 130)"><td>Peri Peri Fries</td><td class="price">₹130</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Spring Roll', 170)"><td>Veg Spring Roll</td><td class="price">₹170</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Spring Roll', 200)"><td>Paneer Spring Roll</td><td class="price">₹200</td></tr>
+        <tr class="item starter" onclick="addItem('Mushroom Duplex Fried', 230)"><td>Mushroom Duplex Fried</td><td class="price">₹230</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Bullets', 160)"><td>Veg Bullets</td><td class="price">₹160</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Popcorn', 180)"><td>Paneer Popcorn</td><td class="price">₹180</td></tr>
+        <tr class="item starter" onclick="addItem('Tandoori Fruit Chaat', 190)"><td>Tandoori Fruit Chaat</td><td class="price">₹190</td></tr>
+        <tr class="item starter" onclick="addItem('Hariyali Soya Chaap', 210)"><td>Hariyali Soya Chaap</td><td class="price">₹210</td></tr>
+        <tr class="item starter" onclick="addItem('Paneer Banjara Tikka', 250)"><td>Paneer Banjara Tikka</td><td class="price">₹250</td></tr>
+        <tr class="item starter" onclick="addItem('Veg Tandoori Platter', 550)"><td>Veg Tandoori Platter</td><td class="price">₹550</td></tr>    
+
+          <!-- DESSERTS & SWEETS (50 Items) -->
+        <tr class="item dessert" onclick="addItem('Gulab Jamun 2 Pcs', 60)"><td>Gulab Jamun (2 Pcs)</td><td class="price">₹60</td></tr>
+        <tr class="item dessert" onclick="addItem('Rasgulla 2 Pcs', 50)"><td>Rasgulla (2 Pcs)</td><td class="price">₹50</td></tr>
+        <tr class="item dessert" onclick="addItem('Rasmalai 2 Pcs', 80)"><td>Rasmalai (2 Pcs)</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Gajar Ka Halwa', 90)"><td>Gajar Ka Halwa</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Moong Dal Halwa', 100)"><td>Moong Dal Halwa</td><td class="price">₹100</td></tr>
+        <tr class="item dessert" onclick="addItem('Kesari Phirni', 75)"><td>Kesari Phirni</td><td class="price">₹75</td></tr>
+        <tr class="item dessert" onclick="addItem('Shahi Tukda', 110)"><td>Shahi Tukda</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Rabri Traditional', 90)"><td>Rabri Traditional</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Malpua with Rabri', 140)"><td>Malpua with Rabri</td><td class="price">₹140</td></tr>
+        <tr class="item dessert" onclick="addItem('Kulfi Falooda', 120)"><td>Kulfi Falooda</td><td class="price">₹120</td></tr>
+        <tr class="item dessert" onclick="addItem('Pista Kulfi Stick', 60)"><td>Pista Kulfi Stick</td><td class="price">₹60</td></tr>
+        <tr class="item dessert" onclick="addItem('Malai Kulfi Stick', 60)"><td>Malai Kulfi Stick</td><td class="price">₹60</td></tr>
+        <tr class="item dessert" onclick="addItem('Saffron Matka Kulfi', 85)"><td>Saffron Matka Kulfi</td><td class="price">₹85</td></tr>
+        <tr class="item dessert" onclick="addItem('Vanilla Ice Cream', 70)"><td>Vanilla Ice Cream</td><td class="price">₹70</td></tr>
+        <tr class="item dessert" onclick="addItem('Chocolate Ice Cream', 80)"><td>Chocolate Ice Cream</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Strawberry Ice Cream', 80)"><td>Strawberry Ice Cream</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Butterscotch Ice Cream', 90)"><td>Butterscotch Ice Cream</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Mango Ice Cream', 90)"><td>Mango Ice Cream</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Kesar Pista Ice Cream', 110)"><td>Kesar Pista Ice Cream</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Tutty Fruity Ice Cream', 100)"><td>Tutty Fruity Ice Cream</td><td class="price">₹100</td></tr>
+        <tr class="item dessert" onclick="addItem('Hot Chocolate Brownie', 130)"><td>Hot Chocolate Brownie</td><td class="price">₹130</td></tr>
+        <tr class="item dessert" onclick="addItem('Brownie with Vanilla', 160)"><td>Brownie with Vanilla</td><td class="price">₹160</td></tr>
+        <tr class="item dessert" onclick="addItem('Sizzling Brownie', 210)"><td>Sizzling Brownie</td><td class="price">₹210</td></tr>
+        <tr class="item dessert" onclick="addItem('Chocolate Mousse', 120)"><td>Chocolate Mousse</td><td class="price">₹120</td></tr>
+        <tr class="item dessert" onclick="addItem('Pineapple Pastry', 70)"><td>Pineapple Pastry</td><td class="price">₹70</td></tr>
+        <tr class="item dessert" onclick="addItem('Black Forest Pastry', 80)"><td>Black Forest Pastry</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Butterscotch Pastry', 80)"><td>Butterscotch Pastry</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Red Velvet Pastry', 110)"><td>Red Velvet Pastry</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Death by Chocolate', 180)"><td>Death by Chocolate</td><td class="price">₹180</td></tr>
+        <tr class="item dessert" onclick="addItem('Fruit Salad', 100)"><td>Fruit Salad</td><td class="price">₹100</td></tr>
+        <tr class="item dessert" onclick="addItem('Fruit Salad with Ice Cream', 140)"><td>Fruit Salad with Ice Cream</td><td class="price">₹140</td></tr>
+        <tr class="item dessert" onclick="addItem('Gulab Jamun with Vanilla', 120)"><td>Gulab Jamun with Vanilla</td><td class="price">₹120</td></tr>
+        <tr class="item dessert" onclick="addItem('Jalebi Pure Ghee', 80)"><td>Jalebi Pure Ghee</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Jalebi with Rabri', 130)"><td>Jalebi with Rabri</td><td class="price">₹130</td></tr>
+        <tr class="item dessert" onclick="addItem('Mishti Doi', 60)"><td>Mishti Doi</td><td class="price">₹60</td></tr>
+        <tr class="item dessert" onclick="addItem('Caramel Custard Veg', 110)"><td>Caramel Custard Veg</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Apple Pie', 150)"><td>Apple Pie</td><td class="price">₹150</td></tr>
+        <tr class="item dessert" onclick="addItem('Banana Split', 160)"><td>Banana Split</td><td class="price">₹160</td></tr>
+        <tr class="item dessert" onclick="addItem('Choco Lava Cake', 110)"><td>Choco Lava Cake</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Mango Pudding', 90)"><td>Mango Pudding</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Dry Fruit Basundi', 120)"><td>Dry Fruit Basundi</td><td class="price">₹120</td></tr>
+        <tr class="item dessert" onclick="addItem('Coconut Burfi', 70)"><td>Coconut Burfi</td><td class="price">₹70</td></tr>
+        <tr class="item dessert" onclick="addItem('Mysore Pak', 80)"><td>Mysore Pak</td><td class="price">₹80</td></tr>
+        <tr class="item dessert" onclick="addItem('Ras Madhuri', 90)"><td>Ras Madhuri</td><td class="price">₹90</td></tr>
+        <tr class="item dessert" onclick="addItem('Raj Bhog', 70)"><td>Raj Bhog</td><td class="price">₹70</td></tr>
+        <tr class="item dessert" onclick="addItem('Paneer Jalebi', 110)"><td>Paneer Jalebi</td><td class="price">₹110</td></tr>
+        <tr class="item dessert" onclick="addItem('Badam Halwa', 150)"><td>Badam Halwa</td><td class="price">₹150</td></tr>
+        <tr class="item dessert" onclick="addItem('Chocolate Truffle Slice', 100)"><td>Chocolate Truffle Slice</td><td class="price">₹100</td></tr>
+        <tr class="item dessert" onclick="addItem('Blueberry Cheesecake Veg', 180)"><td>Blueberry Cheesecake Veg</td><td class="price">₹180</td></tr>
+        <tr class="item dessert" onclick="addItem('Paan Ice Cream', 110)"><td>Paan Ice Cream</td><td class="price">₹110</td></tr>
+
+        <!-- SOUPS & SALADS (30 Items) -->
+        <tr class="item soup" onclick="addItem('Tomato Shorba', 90)"><td>Tomato Shorba</td><td class="price">₹90</td></tr>
+        <tr class="item soup" onclick="addItem('Cream of Tomato Soup', 110)"><td>Cream of Tomato Soup</td><td class="price">₹110</td></tr>
+        <tr class="item soup" onclick="addItem('Veg Manchow Soup', 120)"><td>Veg Manchow Soup</td><td class="price">₹120</td></tr>
+        <tr class="item soup" onclick="addItem('Hot & Sour Veg Soup', 120)"><td>Hot & Sour Veg Soup</td><td class="price">₹120</td></tr>
+        <tr class="item soup" onclick="addItem('Sweet Corn Veg Soup', 120)"><td>Sweet Corn Veg Soup</td><td class="price">₹120</td></tr>
+        <tr class="item soup" onclick="addItem('Lemon Coriander Soup', 110)"><td>Lemon Coriander Soup</td><td class="price">₹110</td></tr>
+        <tr class="item soup" onclick="addItem('Veg Clear Soup', 100)"><td>Veg Clear Soup</td><td class="price">₹100</td></tr>
+        <tr class="item soup" onclick="addItem('Mushroom Cream Soup', 140)"><td>Mushroom Cream Soup</td><td class="price">₹140</td></tr>
+        <tr class="item soup" onclick="addItem('Spinach & Corn Soup', 130)"><td>Spinach & Corn Soup</td><td class="price">₹130</td></tr>
+        <tr class="item soup" onclick="addItem('Minestrone Veg Soup', 140)"><td>Minestrone Veg Soup</td><td class="price">₹140</td></tr>
+        <tr class="item soup" onclick="addItem('Broccoli Almond Soup', 160)"><td>Broccoli Almond Soup</td><td class="price">₹160</td></tr>
+        <tr class="item soup" onclick="addItem('Manchow with Noodles', 130)"><td>Manchow with Noodles</td><td class="price">₹130</td></tr>
+        <tr class="item soup" onclick="addItem('Burnt Garlic Soup', 130)"><td>Burnt Garlic Soup</td><td class="price">₹130</td></tr>
+        <tr class="item soup" onclick="addItem('Tom Yum Veg Soup', 150)"><td>Tom Yum Veg Soup</td><td class="price">₹150</td></tr>
+        <tr class="item soup" onclick="addItem('Pumpkin Ginger Soup', 130)"><td>Pumpkin Ginger Soup</td><td class="price">₹130</td></tr>
+        <tr class="item soup" onclick="addItem('Fresh Green Salad', 70)"><td>Fresh Green Salad</td><td class="price">₹70</td></tr>
+        <tr class="item soup" onclick="addItem('Kachumber Salad', 80)"><td>Kachumber Salad</td><td class="price">₹80</td></tr>
+        <tr class="item soup" onclick="addItem('Onion Laccha Salad', 50)"><td>Onion Laccha Salad</td><td class="price">₹50</td></tr>
+        <tr class="item soup" onclick="addItem('Russian Salad Veg', 150)"><td>Russian Salad Veg</td><td class="price">₹150</td></tr>
+        <tr class="item soup" onclick="addItem('Caesar Salad Veg', 180)"><td>Caesar Salad Veg</td><td class="price">₹180</td></tr>
+        <tr class="item soup" onclick="addItem('Macaroni Pineapple Salad', 160)"><td>Macaroni Pineapple Salad</td><td class="price">₹160</td></tr>
+        <tr class="item soup" onclick="addItem('Sprouted Moong Salad', 100)"><td>Sprouted Moong Salad</td><td class="price">₹100</td></tr>
+        <tr class="item soup" onclick="addItem('Peanut Chaat Salad', 120)"><td>Peanut Chaat Salad</td><td class="price">₹120</td></tr>
+        <tr class="item soup" onclick="addItem('Greek Salad', 190)"><td>Greek Salad</td><td class="price">₹190</td></tr>
+        <tr class="item soup" onclick="addItem('Chickpea Tomato Salad', 130)"><td>Chickpea Tomato Salad</td><td class="price">₹130</td></tr>
+        <tr class="item soup" onclick="addItem('Coleslaw Salad', 110)"><td>Coleslaw Salad</td><td class="price">₹110</td></tr>
+        <tr class="item soup" onclick="addItem('Beetroot Carrot Salad', 90)"><td>Beetroot Carrot Salad</td><td class="price">₹90</td></tr>
+        <tr class="item soup" onclick="addItem('Kimchi Salad Veg', 140)"><td>Kimchi Salad Veg</td><td class="price">₹140</td></tr>
+        <tr class="item soup" onclick="addItem('Pasta Salad Veggies', 170)"><td>Pasta Salad Veggies</td><td class="price">₹170</td></tr>
+        <tr class="item soup" onclick="addItem('Roasted Papad Salad', 90)"><td>Roasted Papad Salad</td><td class="price">₹90</td></tr>
+
+        <!-- CONTINENTAL & FAST FOOD (50 Items) -->
+        <tr class="item inter" onclick="addItem('Margherita Pizza', 220)"><td>Margherita Pizza</td><td class="price">₹220</td></tr>
+        <tr class="item inter" onclick="addItem('Farmhouse Veg Pizza', 280)"><td>Farmhouse Veg Pizza</td><td class="price">₹280</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Tikka Pizza', 310)"><td>Paneer Tikka Pizza</td><td class="price">₹310</td></tr>
+        <tr class="item inter" onclick="addItem('Mushroom Corn Pizza', 290)"><td>Mushroom Corn Pizza</td><td class="price">₹290</td></tr>
+        <tr class="item inter" onclick="addItem('White Sauce Pasta', 240)"><td>White Sauce Pasta</td><td class="price">₹240</td></tr>
+        <tr class="item inter" onclick="addItem('Red Sauce Pasta', 240)"><td>Red Sauce Pasta</td><td class="price">₹240</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Cheese Burger', 120)"><td>Veg Cheese Burger</td><td class="price">₹120</td></tr>
+        <tr class="item inter" onclick="addItem('Maharaja Veg Burger', 180)"><td>Maharaja Veg Burger</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Spicy Paneer Burger', 160)"><td>Spicy Paneer Burger</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Club Sandwich', 150)"><td>Veg Club Sandwich</td><td class="price">₹150</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Tikka Sandwich', 170)"><td>Paneer Tikka Sandwich</td><td class="price">₹170</td></tr>
+        <tr class="item inter" onclick="addItem('Bombay Masala Sandwich', 110)"><td>Bombay Masala Sandwich</td><td class="price">₹110</td></tr>
+        <tr class="item inter" onclick="addItem('Garlic Bread Cheese', 140)"><td>Garlic Bread Cheese</td><td class="price">₹140</td></tr>
+        <tr class="item inter" onclick="addItem('French Fries Classic', 90)"><td>French Fries Classic</td><td class="price">₹90</td></tr>
+        <tr class="item inter" onclick="addItem('Peri Peri Fries', 110)"><td>Peri Peri Fries</td><td class="price">₹110</td></tr>
+        <tr class="item inter" onclick="addItem('Cheese Loaded Fries', 160)"><td>Cheese Loaded Fries</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Nachos Salsa', 140)"><td>Veg Nachos Salsa</td><td class="price">₹140</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Wrap', 130)"><td>Paneer Wrap</td><td class="price">₹130</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Nuggets 10 Pcs', 120)"><td>Veg Nuggets 10 Pcs</td><td class="price">₹120</td></tr>
+        <tr class="item inter" onclick="addItem('Cheese Corn Triangles', 140)"><td>Cheese Corn Triangles</td><td class="price">₹140</td></tr>
+        <!-- Continuing 50 Items -->
+        <tr class="item inter" onclick="addItem('Veg Lasagna', 320)"><td>Veg Lasagna</td><td class="price">₹320</td></tr>
+        <tr class="item inter" onclick="addItem('Macaroni Cheese', 210)"><td>Macaroni Cheese</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Pink Sauce Pasta', 260)"><td>Pink Sauce Pasta</td><td class="price">₹260</td></tr>
+        <tr class="item inter" onclick="addItem('Pesto Sauce Pasta', 280)"><td>Pesto Sauce Pasta</td><td class="price">₹280</td></tr>
+        <tr class="item inter" onclick="addItem('Spaghetti Aglio Olio', 240)"><td>Spaghetti Aglio Olio</td><td class="price">₹240</td></tr>
+        <tr class="item inter" onclick="addItem('Veggie Paradise Pizza', 330)"><td>Veggie Paradise Pizza</td><td class="price">₹330</td></tr>
+        <tr class="item inter" onclick="addItem('Cheese Burst Pizza', 380)"><td>Cheese Burst Pizza</td><td class="price">₹380</td></tr>
+        <tr class="item inter" onclick="addItem('Aloo Tikki Burger', 80)"><td>Aloo Tikki Burger</td><td class="price">₹80</td></tr>
+        <tr class="item inter" onclick="addItem('Double Patty Burger', 210)"><td>Double Patty Burger</td><td class="price">₹210</td></tr>
+        <tr class="item inter" onclick="addItem('Grilled Cheese Sandwich', 120)"><td>Grilled Cheese Sandwich</td><td class="price">₹120</td></tr>
+        <tr class="item inter" onclick="addItem('Corn Spinach Sandwich', 140)"><td>Corn Spinach Sandwich</td><td class="price">₹140</td></tr>
+        <tr class="item inter" onclick="addItem('Garlic Bread Supreme', 180)"><td>Garlic Bread Supreme</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Pizza Fries', 190)"><td>Pizza Fries</td><td class="price">₹190</td></tr>
+        <tr class="item inter" onclick="addItem('Cheese Loaded Nachos', 180)"><td>Cheese Loaded Nachos</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Quesadilla', 220)"><td>Veg Quesadilla</td><td class="price">₹220</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Falafel Wrap', 160)"><td>Veg Falafel Wrap</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Mexican Rice Bowl', 250)"><td>Mexican Rice Bowl</td><td class="price">₹250</td></tr>
+        <tr class="item inter" onclick="addItem('Potato Smiles', 90)"><td>Potato Smiles</td><td class="price">₹90</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Bruschetta', 180)"><td>Veg Bruschetta</td><td class="price">₹180</td></tr>
+        <tr class="item inter" onclick="addItem('Roasted Garlic Mushroom', 220)"><td>Roasted Garlic Mushroom</td><td class="price">₹220</td></tr>
+        <tr class="item inter" onclick="addItem('Cheese Garlic Toast', 130)"><td>Cheese Garlic Toast</td><td class="price">₹130</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Tacos Hard Shell', 150)"><td>Veg Tacos Hard Shell</td><td class="price">₹150</td></tr>
+        <tr class="item inter" onclick="addItem('Soft Shell Veg Tacos', 160)"><td>Soft Shell Veg Tacos</td><td class="price">₹160</td></tr>
+        <tr class="item inter" onclick="addItem('Baked Pasta Cheese', 290)"><td>Baked Pasta Cheese</td><td class="price">₹290</td></tr>
+        <tr class="item inter" onclick="addItem('Paneer Steak Veggies', 340)"><td>Paneer Steak Veggies</td><td class="price">₹340</td></tr>
+        <tr class="item inter" onclick="addItem('Veg Au Gratin', 310)"><td>Veg Au Gratin</td><td class="price">₹310</td></tr>
+        <tr class="item inter" onclick="addItem('Herb Rice Ratatouille', 280)"><td>Herb Rice Ratatouille</td><td class="price">₹280</td></tr>
+        <tr class="item inter" onclick="addItem('Spicy Triple Tango Pizza', 340)"><td>Spicy Triple Tango Pizza</td><td class="price">₹340</td></tr>
+        <tr class="item inter" onclick="addItem('Peppy Paneer Pizza', 320)"><td>Peppy Paneer Pizza</td><td class="price">₹320</td></tr>
+        <tr class="item inter" onclick="addItem('Garlic Bread Plain', 100)"><td>Garlic Bread Plain</td><td class="price">₹100</td></tr>
+
+
             </table>
     </div>
 
